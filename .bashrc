@@ -59,7 +59,7 @@ function pre_prompt() {
      PS1="$user@$host$:$working_dir $git$venv $ "
 }
 
-pre_prompt
+PROMPT_COMMAND=pre_prompt
 
 # Commande pour voir la différence entre sa branche locale et la branche remote
 alias gdiff='git fetch && git diff $(git_branch) origin/$(git_branch)'
