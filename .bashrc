@@ -1,6 +1,7 @@
 BRANCH=""
 
 function git_branch() {
+    # Fonction pour récupérer le nom de la branch courante
     if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
         local branch_name=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
 
@@ -11,13 +12,14 @@ function git_branch() {
 }
 
 color_echo() {
+    # Fonction pour colorer du texte
     Color_Off="\033[0m"
-    Red="\033[1;91m"        # Red
-    Green="\033[1;92m"      # Green
-    Yellow="\033[1;93m"     # Yellow
-    Blue="\033[1;94m"       # Blue
-    Purple="\033[1;95m"     # Purple
-    Cyan="\033[1;96m"       # Cyan
+    Red="\033[1;91m"
+    Green="\033[1;92m"
+    Yellow="\033[1;93m"
+    Blue="\033[1;94m"
+    Purple="\033[1;95m"
+    Cyan="\033[1;96m"
 
     case "$1" in
         "green") echo -e "$Green$2$Color_Off";;
@@ -31,6 +33,8 @@ color_echo() {
 }
 
 function pre_prompt() {
+    # Fonction pour personnaliser l'invite de commande
+
     if [ "$(git_branch)" != "$BRANCH" ]; then
         BRANCH=$(git_branch)
     fi
@@ -50,7 +54,14 @@ function pre_prompt() {
      local user="$(color_echo "red" "\u")"
      local host="$(color_echo "yellow" "\h")"
      local working_dir="$(color_echo "cyan" "$(pwd)")"
+
+     # utilisateur@hôte:dossier_courant [branche] (environnement virtuel)
      PS1="$user@$host$:$working_dir $git$venv $ "
 }
 
 pre_prompt
+
+# Commande pour voir la différence entre sa branche locale et la branche remote
+alias gdiff='git fetch && git diff $(git_branch) origin/$(git_branch)'
+# Commande 
+alias glog='git log --pretty=format:"%C(yellow)%h%C(reset)  (%C(green)%cn%C(reset))  %s"'
