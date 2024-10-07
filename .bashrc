@@ -63,5 +63,7 @@ PROMPT_COMMAND=pre_prompt
 
 # Commande pour voir la différence entre sa branche locale et la branche remote
 alias gdiff='git fetch && git diff $(git_branch) origin/$(git_branch)'
-# Commande 
+# Commande pour afficher les logs selon le format "commit_hash (utilisateur) commit_msg"
 alias glog='git log --pretty=format:"%C(yellow)%h%C(reset)  (%C(green)%cn%C(reset))  %s"'
+# Commande pour ouvrir le bashrc et le recharger automatiquement une fois sorti de l'éditeur
+alias bashrc='vi ~/.bashrc && source ~/.bashrc'
