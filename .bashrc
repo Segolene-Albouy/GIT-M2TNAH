@@ -11,7 +11,7 @@ function git_branch() {
     fi
 }
 
-color_echo() {
+function color_echo() {
     # Fonction pour colorer du texte
     Color_Off="\033[0m"
     Red="\033[1;91m"
@@ -41,14 +41,14 @@ function pre_prompt() {
 
     local git=""
     if [ -n "$BRANCH" ]; then
-        git=$(colorEcho "purple" "[$BRANCH]")
+        git=$(color_echo "purple" "[$BRANCH]")
     fi
 
     local venv=""
     if [ -n "$VIRTUAL_ENV" ]; then
-        venv=$(colorEcho "blue" "($(basename $VIRTUAL_ENV))")
+        venv=$(color_echo "blue" "($(basename $VIRTUAL_ENV))")
     elif [ -n "$CONDA_DEFAULT_ENV" ]; then
-        venv=$(colorEcho "blue" "($CONDA_DEFAULT_ENV)")
+        venv=$(color_echo "blue" "($CONDA_DEFAULT_ENV)")
     fi
 
      local user="$(color_echo "red" "\u")"
