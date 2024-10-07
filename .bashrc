@@ -13,13 +13,13 @@ function git_branch() {
 
 function color_echo() {
     # Fonction pour colorer du texte
-    Color_Off="\033[0m"
-    Red="\033[1;91m"
-    Green="\033[1;92m"
-    Yellow="\033[1;93m"
-    Blue="\033[1;94m"
-    Purple="\033[1;95m"
-    Cyan="\033[1;96m"
+    Color_Off="\[\033[0m\]"
+    Red="\[\033[1;91m\]"
+    Green="\[\033[1;92m\]"
+    Yellow="\[\033[1;93m\]"
+    Blue="\[\033[1;94m\]"
+    Purple="\[\033[1;95m\]"
+    Cyan="\[\033[1;96m\]"
 
     case "$1" in
         "green") echo -e "$Green$2$Color_Off";;
@@ -66,4 +66,4 @@ alias gdiff='git fetch && git diff $(git_branch) origin/$(git_branch)'
 # Commande pour afficher les logs selon le format "commit_hash (utilisateur) commit_msg"
 alias glog='git log --pretty=format:"%C(yellow)%h%C(reset)  (%C(green)%cn%C(reset))  %s"'
 # Commande pour ouvrir le bashrc et le recharger automatiquement une fois sorti de l'éditeur
-alias bashrc='vi ~/.bashrc && source ~/.bashrc'
+alias bashrc='nano ~/.bashrc && source ~/.bashrc'
