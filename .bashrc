@@ -1,6 +1,6 @@
 BRANCH=""
 
-function git_branch() {
+git_branch() {
     # Fonction pour récupérer le nom de la branch courante
     if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
         local branch_name=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
@@ -11,7 +11,7 @@ function git_branch() {
     fi
 }
 
-function color_echo() {
+color_echo() {
     # Fonction pour colorer du texte
     Color_Off="\[\033[0m\]"
     Red="\[\033[1;91m\]"
@@ -32,7 +32,7 @@ function color_echo() {
     esac
 }
 
-function pre_prompt() {
+pre_prompt() {
     # Fonction pour personnaliser l'invite de commande
 
     if [ "$(git_branch)" != "$BRANCH" ]; then
@@ -56,9 +56,12 @@ function pre_prompt() {
      local working_dir="$(color_echo "cyan" "$(pwd)")"
 
      # utilisateur@hôte:dossier_courant [branche] (environnement virtuel)
-     PS1="$user@$host$:$working_dir $git$venv $ "
+     # PS1="$user@$host:$working_dir $git$venv $ "
+     # utilisateur:dossier_courant [branche] (environnement virtuel)
+     PS1="$user:$working_dir $git$venv $ "
 }
 
+# Pour rétablir l'invite de commande par défaut, commenter la ligne suivante (ajouter un # au début)
 PROMPT_COMMAND=pre_prompt
 
 # Commande pour voir la différence entre sa branche locale et la branche remote
