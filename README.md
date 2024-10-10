@@ -15,9 +15,11 @@ M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes.
 ## Ressources en ligne
 
 * [Git - la documentation](https://git-scm.com/doc)
+* [GitHub - Documentation](https://guides.github.com/)
+* [GitHub Skills](https://skills.github.com/)
+* [Guide du développement open-source](https://opensource.guide/fr/)
 * [Tutoriels Atlassian](https://www.atlassian.com/fr/git/tutorials/what-is-version-control)
 * [Guide de survie Git](https://rogerdudler.github.io/git-guide/index.fr.html)
-* [Guide du développement open-source](https://opensource.guide/fr/)
 
 ## Cheatsheet
 
