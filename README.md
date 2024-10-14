@@ -5,12 +5,12 @@ M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes.
 
 ## Programme du cours
 
-| Date        | Horaire     | Sujet                                                                                                                                                                                                            |
-|-------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 7 octobre   | 15h00-17h00 | [Bases de git et environnement de code](https://docs.google.com/presentation/d/e/2PACX-1vRRJo_SUd24189nq2HBysZd9d57d1zRqks2vDCfBzDls6nqOySY3uGVHbR_SQlU3Rc3ibb8W4eV1Ipj/pub?start=false&loop=false&delayms=3000) |
-| 14 octobre  | 15h00-17h00 | Développement collaboratif avec GitHub                                                                                                                                                                           |
-| 9 décembre  | 15h00-17h00 | Bonnes pratiques et _test driven development_                                                                                                                                                                    |
-| 10 décembre | 15h00-17h00 | Méthodologie DevOps et intégration continue                                                                                                                                                                      |
+| Date        | Horaire     | Sujet                                                                                                                                                                                                             |
+|-------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 7 octobre   | 15h00-17h00 | [Bases de git et environnement de code](https://docs.google.com/presentation/d/e/2PACX-1vRRJo_SUd24189nq2HBysZd9d57d1zRqks2vDCfBzDls6nqOySY3uGVHbR_SQlU3Rc3ibb8W4eV1Ipj/pub?start=false&loop=false&delayms=3000)  |
+| 14 octobre  | 15h00-17h00 | [Développement collaboratif avec GitHub](https://docs.google.com/presentation/d/e/2PACX-1vTlAnfpUqs3283UgymBG-Nu3NbdxftqnA3ddavqas6AodJJP7zu3CHa4ByOeEC71ug4UyL34Q-ZkPJc/pub?start=false&loop=false&delayms=3000) |
+| 9 décembre  | 15h00-17h00 | Bonnes pratiques et _test driven development_                                                                                                                                                                     |
+| 10 décembre | 15h00-17h00 | Méthodologie DevOps et intégration continue                                                                                                                                                                       |
 
 ## Ressources en ligne
 
