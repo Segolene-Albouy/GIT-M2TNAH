@@ -21,6 +21,12 @@ M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes
 * [Tutoriels Atlassian](https://www.atlassian.com/fr/git/tutorials/what-is-version-control)
 * [Guide de survie Git](https://rogerdudler.github.io/git-guide/index.fr.html)
 
+### Git Flow
+
+* [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+* [Git Flow - Tutoriel Atlassian](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow)
+* [Git Flow Cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html)
+
 ## Cheatsheet
 
 <table>
