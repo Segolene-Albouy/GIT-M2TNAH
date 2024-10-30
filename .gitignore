@@ -77,3 +77,5 @@ __pypackages__/
 
 # Webpack builds
 node_modules/
+
+temp.*
