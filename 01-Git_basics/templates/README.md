@@ -3,7 +3,7 @@
 A brief description of what the project does and its purpose.
 
 > **Table of Contents**
-> 
+>
 > - [Getting Started](#getting-started)
 > - [Installation](#installation)
 > - [Contributing](#contributing)
@@ -37,7 +37,7 @@ Step-by-step instructions on how to install the project and its dependencies.
     ```bash
     pip install -r requirements.txt
     ```
-   
+
 ### Tests
 
 Explain how to run the automated tests for this system.
@@ -49,7 +49,7 @@ pytest
 ## Contributing
 Guidelines for contributing to the project:
 
-1. Fork the repository 
+1. Fork the repository
 2. Create a branch for your feature (`git checkout -b feature`)
 3. Commit your changes (`git commit -m '[FEATURE] addition of this feature'`)
 4. Push to the branch (`git push origin feature`)
