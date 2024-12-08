@@ -1,100 +1,18 @@
-# Constants
-MAXIMUM_GRADE = 20
-MINIMUM_GRADE = 0
-PASSING_THRESHOLD = 10
-
-
-def is_valid_grade(grade: float) -> bool:
-    """Check if a grade is within valid range.
+def count_word_occurrences(text: str, target_words: list[str]) -> dict[str, int]:
+    """
+    Count the occurrences of specific words in a given text.
 
     Args:
-        grade: The grade to validate
+        text (str): The input text to analyze.
+        target_words (list[str]): List of words to count in the text.
 
     Returns:
-        True if the grade is valid, False otherwise
+        dict[str, int]: A dictionary with words as keys and their counts as values.
     """
-    return MINIMUM_GRADE <= grade <= MAXIMUM_GRADE
-
-
-def calculate_statistics(grade_list: list[float]) -> dict:
-    """Calculate basic statistics for a list of grades.
-
-    Args:
-        grade_list: List of grades to analyze
-
-    Returns:
-        Dictionary containing mean, min, max and count of grades
-    """
-    valid_grades = [grade for grade in grade_list if is_valid_grade(grade)]
-    grade_count = len(valid_grades)
-
-    if grade_count == 0:
-        return {
-            "mean": 0,
-            "minimum": 0,
-            "maximum": 0,
-            "count": 0
-        }
-
-    return {
-        "mean": sum(valid_grades) / grade_count,
-        "minimum": min(valid_grades),
-        "maximum": max(valid_grades),
-        "count": grade_count
-    }
-
-
-def calculate_passing_rate(grade_list: list[float]) -> float:
-    """Calculate the percentage of grades at or above passing threshold.
-
-    Args:
-        grade_list: List of grades to analyze
-
-    Returns:
-        Passing rate as a percentage
-    """
-    valid_grades = [grade for grade in grade_list if is_valid_grade(grade)]
-    if not valid_grades:
-        return 0
-
-    passing_grades = [grade for grade in valid_grades if grade >= PASSING_THRESHOLD]
-    return (len(passing_grades) / len(valid_grades)) * 100
-
-
-def display_grade_details(grade_list: list[float]) -> None:
-    """Display each grade with its status.
-
-    Args:
-        grade_list: List of grades to display
-    """
-    print("\nDétails des notes:")
-    for grade in grade_list:
-        if is_valid_grade(grade):
-            status = "Réussite" if grade >= PASSING_THRESHOLD else "Échec"
-            print(f"- {grade}/20 ({status})")
-
-
-def display_results(grade_list: list[float]) -> None:
-    """Display a complete report of results.
-
-    Args:
-        grade_list: List of grades to analyze
-    """
-    stats = calculate_statistics(grade_list)
-    passing_rate = calculate_passing_rate(grade_list)
-
-    print("Résultats de la classe :")
-    print("------------------------")
-    print(f"Moyenne : {stats['mean']:.2f}")
-    print(f"Note minimale : {stats['minimum']}")
-    print(f"Note maximale : {stats['maximum']}")
-
-    display_grade_details(grade_list)
-
-    print(f"\nTaux de réussite : {passing_rate:.1f}%")
-
-
-# Example usage
-if __name__ == "__main__":
-    grades = [15, 12, 8, 16, 9, 13, 7, 14]
-    display_results(grades)
+    word_counts = {}
+    for word in text.split():
+        if word in target_words:
+            if word not in word_counts:
+                word_counts[word] = 0
+            word_counts[word] += 1
+    return word_counts
