@@ -88,7 +88,6 @@ def analyze_text(path: str) -> None:
     print(f"Plus long mot: {stats['longest_word']}")
 
 
-
 if __name__ == "__main__":
     sample_text = get_text("https://www.theatre-classique.fr/pages/txt/CORNEILLEP_CID.txt")
     with open('temp.txt', 'w', encoding='utf-8') as f:

@@ -21,4 +21,3 @@ def get_text(url):
     if response.status_code == 200:
         return response.text
     return "Erreur lors de la récupération du texte."
-
