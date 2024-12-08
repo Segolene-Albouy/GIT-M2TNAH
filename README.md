@@ -1,6 +1,6 @@
 # Cours Git et bonnes pratiques de développement
 
-Ce *repository* constitue un dépôt pour le contenu pédagogique du cours « Git & bonnes pratiques de code » du 
+Ce *repository* constitue un dépôt pour le contenu pédagogique du cours « Git & bonnes pratiques de code » du
 M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes
 
 ## Programme du cours
