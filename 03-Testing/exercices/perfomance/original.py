@@ -1,7 +1,7 @@
-from utils import measure_time, get_text
+from utils import timer, get_text
 
 
-@measure_time
+@timer
 def analyze_text(path):
     # lit le fichier et fait des stats
     f = open(path, 'r', encoding='utf-8')

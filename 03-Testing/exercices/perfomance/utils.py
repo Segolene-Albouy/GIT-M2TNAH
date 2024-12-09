@@ -3,14 +3,14 @@ import requests
 from functools import wraps
 
 
-def measure_time(func):
+def timer(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
         execution_time = end_time - start_time
-        print(f"\nTemps d'exécution: {execution_time:.3f} secondes")
+        print(f"\n[{func.__name__}]: {execution_time:.3f} secondes")
         return result
 
     return wrapper

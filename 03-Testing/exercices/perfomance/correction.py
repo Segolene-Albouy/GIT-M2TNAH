@@ -1,4 +1,4 @@
-from utils import measure_time, get_text
+from utils import timer, get_text
 
 from collections import Counter
 import time
@@ -27,14 +27,17 @@ class TextAnalyzer:
             for word in self.words
         }
 
+    @timer
     def count_sentences(self) -> int:
         """Compte le nombre de phrases dans le texte."""
         return sum(1 for char in self.text if char in SENTENCE_ENDINGS)
 
+    @timer
     def get_word_count(self) -> int:
         """Retourne le nombre total de mots."""
         return len(self.words)
 
+    @timer
     def get_frequent_words(self) -> Dict[str, int]:
         """Retourne les mots fréquents et leur nombre d'occurrences."""
         return {
@@ -42,6 +45,7 @@ class TextAnalyzer:
             if count > FREQUENT_WORD_THRESHOLD
         }
 
+    @timer
     def calculate_avg_length(self) -> float:
         """Calcule la longueur moyenne des mots non fréquents."""
         non_frequent_words = [
@@ -52,12 +56,13 @@ class TextAnalyzer:
             return 0
         return sum(len(word) for word in non_frequent_words) / len(non_frequent_words)
 
+    @timer
     def find_longest_word(self) -> str:
         """Trouve le plus long mot (après nettoyage des caractères spéciaux)."""
         return max(self.clean_words.values(), key=len, default='')
 
 
-@measure_time
+@timer
 def analyze_text(path: str) -> None:
     """Analyse un fichier texte et affiche les statistiques."""
     # Lecture du fichier en une seule fois
