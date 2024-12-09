@@ -39,7 +39,7 @@ def test_str_representation(adult):
 @pytest.mark.parametrize(
     "string,first,last,birth,city",
     [
-        "Alice Dupont 1985-07-22 Marseille", "Alice", "Dupont", date(1985, 7, 22), "Marseille"
+        ("Alice Dupont 1985-07-22 Marseille", "Alice", "Dupont", date(1985, 7, 22), "Marseille")
     ]
 )
 def test_from_string(string, first, last, birth, city):
@@ -48,14 +48,14 @@ def test_from_string(string, first, last, birth, city):
 
 
 @pytest.mark.parametrize(
-    "string,",
+    "string",
     [
         "Alice Dupont",  # Missing data
         "Alice Dupont 1985-13-45 Marseille",  # Invalid date
         "Alice Dupont not-a-date Marseille",  # Wrong date format
     ]
 )
-def test_from_string_invalid(invalid_person_strings):
+def test_from_string_invalid(string):
     """Test that invalid strings raise ValueError"""
     # TODO: Try creating person from invalid strings and verify ValueErrors
 

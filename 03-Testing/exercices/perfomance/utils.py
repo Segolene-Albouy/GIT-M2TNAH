@@ -16,6 +16,17 @@ def timer(func):
     return wrapper
 
 
+def log_exception(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            print(f"\n[{e.__name__}]: {e}")
+
+    return wrapper
+
+
 def get_text(url):
     response = requests.get(url)
     if response.status_code == 200:
