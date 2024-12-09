@@ -1,10 +1,7 @@
 from utils import timer, get_text
 
 from collections import Counter
-import time
-from functools import wraps
-import re
-from typing import Dict, List, Set, Tuple
+from typing import Dict
 
 # Constants
 FREQUENT_WORD_THRESHOLD = 5
@@ -63,12 +60,8 @@ class TextAnalyzer:
 
 
 @timer
-def analyze_text(path: str) -> None:
+def analyze_text(content: str) -> None:
     """Analyse un fichier texte et affiche les statistiques."""
-    # Lecture du fichier en une seule fois
-    with open(path, 'r', encoding='utf-8') as f:
-        content = f.read()
-
     # Crée une seule instance qui maintient les données pré-calculées
     analyzer = TextAnalyzer(content)
 
@@ -94,9 +87,6 @@ def analyze_text(path: str) -> None:
 
 
 if __name__ == "__main__":
-    sample_text = get_text("https://www.theatre-classique.fr/pages/txt/CORNEILLEP_CID.txt")
-    with open('temp.txt', 'w', encoding='utf-8') as f:
-        f.write(sample_text)
-
+    le_cid = get_text("https://www.theatre-classique.fr/pages/txt/CORNEILLEP_CID.txt")
     print("Analyse du texte avec l'algorithme optimisé...")
-    analyze_text('temp.txt')
+    analyze_text(le_cid)

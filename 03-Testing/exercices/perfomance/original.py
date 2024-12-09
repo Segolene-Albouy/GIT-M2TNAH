@@ -2,6 +2,7 @@ from utils import timer, get_text
 
 
 @timer
+@log_exception
 def analyze_text(path):
     # lit le fichier et fait des stats
     f = open(path, 'r', encoding='utf-8')
