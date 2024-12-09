@@ -5,4 +5,5 @@ def func_b():
     print("Function B")
     func_c()
 
+
 # from shared import func_c

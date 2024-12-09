@@ -5,7 +5,7 @@ from typing import Dict
 
 # Constants
 FREQUENT_WORD_THRESHOLD = 5
-SENTENCE_ENDINGS = {'.', '!', '?'}
+SENTENCE_ENDINGS = {".", "!", "?"}
 
 
 class TextAnalyzer:
@@ -15,13 +15,13 @@ class TextAnalyzer:
         self.words = text.split()
         self.word_counts = Counter(word.lower() for word in self.words)
         self.frequent_words = {
-            word for word, count in self.word_counts.items()
+            word
+            for word, count in self.word_counts.items()
             if count > FREQUENT_WORD_THRESHOLD
         }
         # Nettoie les mots une seule fois
         self.clean_words = {
-            word: ''.join(c for c in word if c.isalpha())
-            for word in self.words
+            word: "".join(c for c in word if c.isalpha()) for word in self.words
         }
 
     @timer
@@ -38,7 +38,8 @@ class TextAnalyzer:
     def get_frequent_words(self) -> Dict[str, int]:
         """Retourne les mots fréquents et leur nombre d'occurrences."""
         return {
-            word: count for word, count in self.word_counts.items()
+            word: count
+            for word, count in self.word_counts.items()
             if count > FREQUENT_WORD_THRESHOLD
         }
 
@@ -46,8 +47,7 @@ class TextAnalyzer:
     def calculate_avg_length(self) -> float:
         """Calcule la longueur moyenne des mots non fréquents."""
         non_frequent_words = [
-            word for word in self.words
-            if word.lower() not in self.frequent_words
+            word for word in self.words if word.lower() not in self.frequent_words
         ]
         if not non_frequent_words:
             return 0
@@ -56,7 +56,7 @@ class TextAnalyzer:
     @timer
     def find_longest_word(self) -> str:
         """Trouve le plus long mot (après nettoyage des caractères spéciaux)."""
-        return max(self.clean_words.values(), key=len, default='')
+        return max(self.clean_words.values(), key=len, default="")
 
 
 @timer
@@ -67,11 +67,11 @@ def analyze_text(content: str) -> None:
 
     # Collecte toutes les statistiques
     stats = {
-        'word_count': analyzer.get_word_count(),
-        'sentence_count': analyzer.count_sentences(),
-        'frequent_words': analyzer.get_frequent_words(),
-        'avg_length': analyzer.calculate_avg_length(),
-        'longest_word': analyzer.find_longest_word()
+        "word_count": analyzer.get_word_count(),
+        "sentence_count": analyzer.count_sentences(),
+        "frequent_words": analyzer.get_frequent_words(),
+        "avg_length": analyzer.calculate_avg_length(),
+        "longest_word": analyzer.find_longest_word(),
     }
 
     # Affichage des résultats
@@ -79,10 +79,12 @@ def analyze_text(content: str) -> None:
     print(f"Nombre de phrases: {stats['sentence_count']}")
 
     print("\nMots fréquents:")
-    for word, count in stats['frequent_words'].items():
+    for word, count in stats["frequent_words"].items():
         print(f"'{word}': {count} fois")
 
-    print(f"\nLongueur moyenne des mots (hors mots fréquents): {stats['avg_length']:.1f}")
+    print(
+        f"\nLongueur moyenne des mots (hors mots fréquents): {stats['avg_length']:.1f}"
+    )
     print(f"Plus long mot: {stats['longest_word']}")
 
 

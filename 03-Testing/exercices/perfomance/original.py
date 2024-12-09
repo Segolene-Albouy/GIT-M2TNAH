@@ -5,7 +5,7 @@ from utils import timer, get_text
 @log_exception
 def analyze_text(path):
     # lit le fichier et fait des stats
-    f = open(path, 'r', encoding='utf-8')
+    f = open(path, "r", encoding="utf-8")
     content = f.read()
     f.close()
 
@@ -87,9 +87,11 @@ def analyze_text(path):
 
 
 if __name__ == "__main__":
-    sample_text = get_text("https://www.theatre-classique.fr/pages/txt/CORNEILLEP_CID.txt")
-    with open('temp.txt', 'w', encoding='utf-8') as f:
+    sample_text = get_text(
+        "https://www.theatre-classique.fr/pages/txt/CORNEILLEP_CID.txt"
+    )
+    with open("temp.txt", "w", encoding="utf-8") as f:
         f.write(sample_text)
 
     print("Analyse du texte avec l'algorithme non optimisé...")
-    analyze_text('temp.txt')
+    analyze_text("temp.txt")

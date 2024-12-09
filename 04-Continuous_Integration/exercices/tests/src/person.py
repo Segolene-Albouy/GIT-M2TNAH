@@ -3,7 +3,9 @@ from typing import List
 
 
 class Person:
-    def __init__(self, firstname: str, name: str, birth: date, city: str = None) -> None:
+    def __init__(
+        self, firstname: str, name: str, birth: date, city: str = None
+    ) -> None:
         if not firstname or not name:
             raise ValueError("Firstname and name cannot be empty.")
         if birth > date.today():
@@ -36,7 +38,9 @@ class Person:
             birth = date.fromisoformat(birth_str)
             return cls(firstname, name, birth, city)
         except ValueError:
-            raise ValueError("Input string must be in the format 'Firstname Name YYYY-MM-DD City'")
+            raise ValueError(
+                "Input string must be in the format 'Firstname Name YYYY-MM-DD City'"
+            )
 
     @staticmethod
     def is_adult(age: int) -> bool:

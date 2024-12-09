@@ -3,6 +3,7 @@ from pathlib import Path
 
 current_dir = Path(__file__).parent
 
+
 def download_img(width, nb_img, saving_dir):
     url = f"https://digi.vatlib.it/iiifimage/MSS_Vat.gr.1087/Vat.gr.1087_000{nb_img}.jp2/full/{width},/0/default.jpg"
     response = requests.get(url)
