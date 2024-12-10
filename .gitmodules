@@ -1,3 +1,0 @@
-[submodule "project-template"]
-	path = 04-Continuous_Integration/template
-	url = git@github.com:Segolene-Albouy/python-project-template.git
