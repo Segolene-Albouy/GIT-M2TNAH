@@ -21,6 +21,7 @@ M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes
 * [Tutoriels Atlassian](https://www.atlassian.com/fr/git/tutorials/what-is-version-control)
 * [Guide de survie Git](https://rogerdudler.github.io/git-guide/index.fr.html)
 * [Oh my Git!](https://ohmygit.org/)
+* [Git Purr ฅ^•ﻌ•^ฅ](https://girliemac.com/blog/2017/12/26/git-purr/)
 
 ### Git Flow
 
