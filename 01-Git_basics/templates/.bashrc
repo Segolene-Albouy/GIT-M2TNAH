@@ -12,22 +12,22 @@ git_branch() {
 }
 
 color_echo() {
-    # Fonction pour colorer du texte
-    Color_Off="\[\033[0m\]"
-    Red="\[\033[1;91m\]"
-    Green="\[\033[1;92m\]"
-    Yellow="\[\033[1;93m\]"
-    Blue="\[\033[1;94m\]"
-    Purple="\[\033[1;95m\]"
-    Cyan="\[\033[1;96m\]"
+    # Fonction pour colorer le texte
+    Color_Off='\[\033[0m\]'
+    Red='\[\033[1;91m\]'
+    Green='\[\033[1;92m\]'
+    Yellow='\[\033[1;93m\]'
+    Blue='\[\033[1;94m\]'
+    Purple='\[\033[1;95m\]'
+    Cyan='\[\033[1;96m\]'
 
     case "$1" in
-        "green") echo -e "$Green$2$Color_Off";;
-        "red") echo -e "$Red$2$Color_Off";;
-        "blue") echo -e "$Blue$2$Color_Off";;
-        "yellow") echo -e "$Yellow$2$Color_Off";;
-        "purple") echo -e "$Purple$2$Color_Off";;
-        "cyan") echo -e "$Cyan$2$Color_Off";;
+        "green") echo "${Green}$2${Color_Off}";;
+        "red") echo "${Red}$2${Color_Off}";;
+        "blue") echo "${Blue}$2${Color_Off}";;
+        "yellow") echo "${Yellow}$2${Color_Off}";;
+        "purple") echo "${Purple}$2${Color_Off}";;
+        "cyan") echo "${Cyan}$2${Color_Off}";;
         *) echo "$2";;
     esac
 }
