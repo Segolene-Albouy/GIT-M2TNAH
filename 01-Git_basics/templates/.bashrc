@@ -11,25 +11,51 @@ git_branch() {
     fi
 }
 
-color_echo() {
-    # Fonction pour colorer le texte
-    Color_Off='\[\033[0m\]'
-    Red='\[\033[1;91m\]'
-    Green='\[\033[1;92m\]'
-    Yellow='\[\033[1;93m\]'
-    Blue='\[\033[1;94m\]'
-    Purple='\[\033[1;95m\]'
-    Cyan='\[\033[1;96m\]'
+get_color() {
+    color="${1:-white}"
+    style="${2:-0}" # 0 (normal) / 1 (bold) / 2 (dim) / 3 (italic) / 4 (underline) / 5 (blink) / 7 (reverse) / 8 (hidden)
+    is_bright="${3:-0}" # 0 or 1
 
-    case "$1" in
-        "green") echo "${Green}$2${Color_Off}";;
-        "red") echo "${Red}$2${Color_Off}";;
-        "blue") echo "${Blue}$2${Color_Off}";;
-        "yellow") echo "${Yellow}$2${Color_Off}";;
-        "purple") echo "${Purple}$2${Color_Off}";;
-        "cyan") echo "${Cyan}$2${Color_Off}";;
-        *) echo "$2";;
+    shade=""
+    if [ "$is_bright" = 1 ]; then
+        shade="9"
+    else
+        shade="3"
+    fi
+
+    case "$color" in
+        "black") echo "\[\033[${style};${shade}0m\]";;
+        "red") echo "\[\033[${style};${shade}1m\]";;
+        "green") echo "\[\033[${style};${shade}2m\]";;
+        "yellow") echo "\[\033[${style};${shade}3m\]";;
+        "blue") echo "\[\033[${style};${shade}4m\]";;
+        "purple") echo "\[\033[${style};${shade}5m\]";;
+        "cyan") echo "\[\033[${style};${shade}6m\]";;
+        "white") echo "\[\033[${style};37m\]";;
+        "gray") echo "\[\033[${style};90m\]";;
+        *) echo "\[\033[0m\]";; # Default color
     esac
+}
+
+color_echo() {
+    msg=$2
+    # color / style / is_bright
+    color=$(get_color $1 $3 $4)
+
+    color_off='\[\033[0m\]'
+    echo "${color}${msg}${color_off}"
+}
+
+TODAY=$(date +%m-%d)
+
+function get_emoji() {
+    if [ "$TODAY" = "12-24" ]; then
+        echo "🎄"
+    elif [ "$TODAY" = "05-20" ]; then
+        echo "🎂"
+    else
+        echo "🔥"
+    fi
 }
 
 pre_prompt() {
@@ -48,17 +74,19 @@ pre_prompt() {
     if [ -n "$VIRTUAL_ENV" ]; then
         venv=$(color_echo "blue" "($(basename $VIRTUAL_ENV))")
     elif [ -n "$CONDA_DEFAULT_ENV" ]; then
-        venv=$(color_echo "blue" "($CONDA_DEFAULT_ENV)")
+        venv=$(color_echo "blue" "($CONDA_DEFAULT_ENV)" "3")
     fi
 
-     local user="$(color_echo "red" "\u")"
-     local host="$(color_echo "yellow" "\h")"
-     local working_dir="$(color_echo "cyan" "$(pwd)")"
+     local user="$(color_echo "white" "\u" "1")"
+     local host="$(color_echo "white" "\h")"
+     local working_dir="$(color_echo "grey" "$(pwd)")"
+
+     local emoji=$(get_emoji)
 
      # utilisateur@hôte:dossier_courant [branche] (environnement virtuel)
      # PS1="$user@$host:$working_dir $git$venv $ "
      # utilisateur:dossier_courant [branche] (environnement virtuel)
-     PS1="$user:$working_dir $git$venv $ "
+     PS1="$user:$working_dir $emoji $git$venv $ "
 }
 
 # Pour rétablir l'invite de commande par défaut, commenter la ligne suivante (ajouter un # au début)
