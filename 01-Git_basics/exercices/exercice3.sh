@@ -15,4 +15,12 @@ git commit -m "Add new files"
 # 5. Revenir à la branche principale
 git switch main
 
-# 6. Observer l'arboresence des fichiers du projet
+# 6. Observer l'arborescence des fichiers du projet
+
+# 7. Fusionner la branche principale dans ma branche
+git switch my-branch
+git merge main
+
+# 8. Intégrer les modifications de ma branche dans la branche principale
+git switch main
+git merge my-branch
