@@ -2,10 +2,10 @@
 
 ## Plan du cours
 
-> 1. [Git](#git) : Comment & pourquoi utiliser le versioning
-> 2. [IDE](#ide) : Prise en main d’un logiciel de développement
+> 1. [Git](#git) : Comment & pourquoi utiliser le _versioning_
+> 2. [IDE](#utiliser-un-ide) : Prise en main d’un logiciel de développement
 > 3. [GitHub](#github) : Hébergement et collaboration
-> 4. [Exercices](#exercices) : Mise en pratique des commandes
+> 4. [Exercices](#exercice-4--contribuer-à-plusieurs-sur-un-_repository_-par-2) : Mise en pratique des commandes
 
 ## Git
 
@@ -631,8 +631,8 @@ Il existe différents services en ligne pour héberger ses _repositories_ :
 
 <hr>
 
-> ### Obtenir une licence étudiante GitHub
-> 
+### Obtenir une licence étudiante GitHub
+
 > #### Prérequis
 > 1. Ajouter son adresse mail de l’École : [github.com/settings/emails](https://github.com/settings/emails)
 > 2. Remplir son profil GitHub : [github.com/settings/profile](https://github.com/settings/profile)
