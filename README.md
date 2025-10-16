@@ -45,6 +45,11 @@ M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes
         <td>Initialiser un <i>repository</i></td>
     </tr>
     <tr>
+        <td><img alt="git status" src="images/status.png"></td>
+        <td><pre>git status</pre></td>
+        <td>Lister les fichiers modifiés/indexés</td>
+    </tr>
+    <tr>
         <td><img alt="git add" src="images/add.png"></td>
         <td><pre>git add &lt;filename&gt;</pre><hr><pre>git add -A</pre></td>
         <td>Ajouter un fichier à la <i>staging area</i><hr>Ajouter tous les fichiers modifiés</td>
@@ -53,6 +58,11 @@ M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes
         <td><img alt="git commit" src="images/commit.png"></td>
         <td><pre>git commit -m "&lt;message&gt;"</pre></td>
         <td>Valider les modifications avec un message</td>
+    </tr>
+    <tr>
+        <td><img alt="git diff" src="images/diff.png"></td>
+        <td><pre>git diff</pre></td>
+        <td>Afficher le contenu des différences entre le dernier commit et les fichiers modifiés depuis le dernier commit</td>
     </tr>
     <tr>
         <td><img alt="git branch" src="images/branch.png"></td>
@@ -98,16 +108,6 @@ M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes
         <td><img alt="git log" src="images/log.png"></td>
         <td><pre>git log</pre></td>
         <td>Afficher l'historique des commits</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td><pre>git status</pre></td>
-        <td>Lister les fichiers modifiés/indexés</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td><pre>git diff</pre></td>
-        <td>Afficher le contenu des différences entre le dernier commit et les fichiers modifiés depuis le dernier commit</td>
     </tr>
 </tbody>
 </table>

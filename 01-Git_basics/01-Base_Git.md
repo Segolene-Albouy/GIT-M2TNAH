@@ -5,7 +5,6 @@
 > 1. [Git](#git) : Comment & pourquoi utiliser le _versioning_
 > 2. [IDE](#utiliser-un-ide) : Prise en main d’un logiciel de développement
 > 3. [GitHub](#github) : Hébergement et collaboration
-> 4. [Exercices](#exercice-4--contribuer-à-plusieurs-sur-un-_repository_-par-2) : Mise en pratique des commandes
 
 ## Git
 
@@ -67,6 +66,8 @@ La branche par défaut s’appelle _**`main`**_ (anciennement _**`master`**_).
 <hr>
 
 #### 4️⃣ Collaborer sur un projet
+
+<img src="images/collaboration.png" alt="Collaboration">
 
 Comme système de version décentralisé, `git` permet de :
 
@@ -134,6 +135,40 @@ git config --list
 
 <hr>
 
+#### Modification du `.bashrc`
+
+Le `.bashrc` est un fichier de configuration qui permet de personnaliser son terminal bash.
+
+```bash
+# ajout de commandes et alias à sa config bash
+curl -s https://raw.githubusercontent.com/Segolene-Albouy/GIT-M2TNAH/refs/heads/main/01-Git_basics/templates/.bashrc >> ~/.bashrc
+
+# recharger la config pour voir les effets
+source ~/.bashrc
+
+# rétablir le .bashrc d'origine
+curl -s https://gist.githubusercontent.com/marioBonales/1637696/raw/93a33aa5f1893f46773483250214f8b8b496a270/.bashrc > ~/.bashrc
+```
+
+Avec l'ajout de ces commandes, vous pouvez désormais :
+
+```bash
+# Voir immédiatement la branche courante
+user:/path/to/repo [branch] $ 
+
+# Changer votre .bashrc facilement avec la commande
+# Notamment pour changer les couleurs 🎨
+bashrc
+
+# Visualiser la diff entre la branche locale/remote
+gdiff
+
+# Afficher les logs bien formatés
+glog
+```
+
+<hr>
+
 ### Création de son premier commit
 
 <img src="../images/init.png" alt="Initialiser un repository">
@@ -166,28 +201,9 @@ La création d’un commit, se fait en plusieurs étapes :
 
 <hr>
 
-#### Ajout à la _staging area_ : `git status` et `git add`
+#### Connaître l'état du _repository_ : `git status`
 
-<img src="../images/add.png" alt="Indexation de fichiers">
-
-On parle aussi d'indexation de fichiers.
-
-```bash
-# lister tous les fichiers modifiés depuis le dernier commit
-git status
-
-# ajout d’un fichier précis
-git add <path/to/filename>
-# ajout de plusieurs fichiers
-git add <path/to/filename1> <path/to/filename2>
-# ajout de tous les fichiers d’un dossier
-git add <path/to/directory>
-
-# ajout de tous les fichiers du repo
-git add -A
-```
-
-<hr>
+<img src="../images/status.png" alt="git status">
 
 Exemple :
 ```bash
@@ -209,19 +225,28 @@ Fichiers non suivis:
 
 <hr>
 
-#### Visualiser les modifications : `git diff`
+#### Ajout à la _staging area_ : `git add`
+
+<img src="../images/add.png" alt="Indexation de fichiers">
+
+On parle aussi d'indexation de fichiers.
 
 ```bash
-# voir le contenu des modifications depuis le dernier commit
-git diff
-# dans un fichier particulier
-git diff <path/to/file>
+# lister tous les fichiers modifiés depuis le dernier commit
+git status
 
-# avec une autre branche
-git diff <branch-name>
-# entre deux branches
-git diff <branch-name> <branch-name>
+# ajout d’un fichier précis
+git add <path/to/filename>
+# ajout de plusieurs fichiers
+git add <path/to/filename1> <path/to/filename2>
+# ajout de tous les fichiers d’un dossier
+git add <path/to/directory>
+
+# ajout de tous les fichiers du repo
+git add -A
 ```
+
+> 🗒️ Note: git fonctionne mieux avec des fichiers texte brut, on évite `.docx`, `.odt`, etc.
 
 <hr>
 
@@ -248,7 +273,14 @@ index 04af84e..c006980 100644            # hash des versions
 
 <img src="../images/commit.png" alt="Commit">
 
-Après avoir utilisé `git diff` pour avoir en tête toutes les modifications, on peut créer le commit.
+```bash
+# commit des fichiers de la staging area
+git commit
+
+# commit avec message
+git commit -m "<commit-message>"
+```
+
 Pour faire un bon commit :
 
 1. **Le bon moment** : Commiter lorsqu’on a achevé une modification significative. Privilégier les petits commits.
@@ -272,25 +304,13 @@ L’idée, c'est de pouvoir identifier rapidement l’objet du commit :
 - **`scope`** : partie du projet impactée (optionnel), e.g. `(api)`, `(login)`, `(database)`, `(search)`, etc.
 - **`description`** : court résumé des modifications effectuées (max 1 phrase)
 
-💭 Pensez à votre vous du futur : est-ce que je vais encore me comprendre dans 6 mois ?
-
-<hr>
-
-#### Création du commit : `git commit`
-
-```bash
-# commit des fichiers de la staging area
-git commit
-
-# commit avec message
-git commit -m "<commit-message>"
-```
+> 💭 Pensez à votre vous du futur : est-ce que je vais encore me comprendre dans 6 mois ?
 
 <hr>
 
 **🚨ALERTE : oubli du `-m` après `commit` !**
 
-Lorsque on ne précise pas directement le message avec l'argument `-m`, 
+Lorsqu'on ne précise pas directement le message avec l'argument `-m`, 
 git ouvre l'éditeur de texte du terminal pour y écrire le message.
 
 ```
@@ -317,6 +337,27 @@ git ouvre l'éditeur de texte du terminal pour y écrire le message.
    2. Écrire le message de commit
    3. Appuyer sur `Esc` pour quitter le mode édition
    4. Taper `:x!` pour enregistrer et quitter ou `:q!` pour quitter sans enregistrer
+
+<hr>
+
+#### Visualiser les modifications : `git diff`
+
+<img src="../images/diff.png" alt="Git diff">
+
+Permet de voir toutes les modifications effectuées depuis le dernier commit.
+On utilise `git diff` pour avoir en tête toutes les modifications avant de créer le commit.
+
+```bash
+# voir le contenu des modifications depuis le dernier commit
+git diff
+# dans un fichier particulier
+git diff <path/to/file>
+
+# avec une autre branche
+git diff <branch-name>
+# entre deux branches
+git diff <branch-name> <branch-name>
+```
 
 <hr>
 
@@ -377,39 +418,6 @@ git switch -c <branch-name>
 git checkout -b <branch-name>
 ```
 
-<hr>
-
-#### Modification du `.bashrc`
-
-Le `.bashrc` est un fichier de configuration qui permet de personnaliser son terminal bash.
-
-```bash
-# ajout de commandes et alias à sa config bash
-curl -s https://raw.githubusercontent.com/Segolene-Albouy/GIT-M2TNAH/refs/heads/main/01-Git_basics/templates/.bashrc >> ~/.bashrc
-
-# recharger la config pour voir les effets
-source ~/.bashrc
-
-# rétablir le .bashrc d'origine
-curl -s https://gist.githubusercontent.com/marioBonales/1637696/raw/93a33aa5f1893f46773483250214f8b8b496a270/.bashrc > ~/.bashrc
-```
-
-Avec l'ajout de ces commandes, vous pouvez désormais :
-
-```bash
-# Voir immédiatement la branche courante
-user:/path/to/repo [branch] $ 
-
-# Changer votre .bashrc facilement avec la commande
-# Notamment pour changer les couleurs 🎨
-bashrc
-
-# Visualiser la diff entre la branche locale/remote
-gdiff
-
-# Afficher les logs bien formatés
-glog
-```
 <hr>
 
 ## Utiliser un IDE
@@ -502,28 +510,31 @@ Les conflits éventuels sont résolus séparément pour chaque commit recréé.
 
 <hr>
 
-#### ⚠️ À retenir lors de la fusion
+#### ⚠️ À retenir lors de la fusion : la règle du merge en 2️⃣ temps
 
-Quand on veut intégrer ses modifications à une autre branche (`main` dans cet exemple) :
+> **Avant de fusionner, on met à jour**
 
-1. On s'assure que l'autre branche est à jour
-   ```bash
-   git switch main
-   [main] git pull
-   ```
-2. Depuis **sa branche** de travail, on fusionne l'autre branche 
-   ```bash
-   [main] git switch my-branch
-   [my-branch] git merge/rebase main
-   ```
-3. Depuis **l'autre branche**, on `merge` sa branche de travail
-   ```bash
-   [my-branch] git switch main
-   [main] git merge my-branch
-   ```
+1. **D'abord** : on récupère les dernières modifs
+    ```bash
+    Depuis MA branche, je récupère les changements de main
+    /my/repo [my-branch] git merge main
+    # ou
+    /my/repo [my-branch] git rebase main
+    ```
+    → Ma branche est maintenant à jour avec main
+2. **Ensuite** : on partage ses modifications
+    ```bash
+    # Je switch sur main
+    /my/repo [my-branch] git switch main
+    # Je fusionne ma branche
+    /my/repo [main] git merge my-branch
+    ```
+    → `main` contient maintenant mes modifications
 
 🚨️ On ne **rebase JAMAIS** depuis une branche où on travaille à plusieurs.
 🛟 De manière générale, préférer `merge` pour s'épargner des sueurs froides.
+
+> ### 💡 _Synchroniser avant de merger_
 
 [//]: # (> **Pourquoi fusionner main dans sa branche AVANT de merger ?**)
 [//]: # (> _Scénario : d'autres commits ont été `main` pendant que tu travaillais sur ta branche_)
