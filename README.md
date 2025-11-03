@@ -13,23 +13,6 @@ M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes.
 | 3 novembre  | 15h00-17h00 | [GitHub Pages](https://docs.google.com/presentation/d/e/2PACX-1vQstB-1DEwJs8RKzVP2-UH8Ol1NjSpqgvFPKqLMXPcLg0pdRUFObdE6p_4WgeCwV8toCXBqGDyNv3PX/pub?start=false&loop=false&delayms=3000)                                      |                                                                                                                                                                   |
 | 15 décembre | 15h00-17h00 | [_Test driven development_ et intégration continue](https://docs.google.com/presentation/d/e/2PACX-1vSHh_YRxsMAOTNGXu81FgYzCY0W0lUYjsulfh3qpD5aH9jkNSx_mTrsscxhVA4lLlH60O620yyG9Bt4/pub?start=false&loop=false&delayms=3000) |
 
-## Ressources en ligne
-
-* [Git - la documentation](https://git-scm.com/doc)
-* [GitHub Skills](https://skills.github.com/)
-* [GitHub - Documentation](https://guides.github.com/)
-* [Guide du développement open-source](https://opensource.guide/fr/)
-* [Tutoriels Atlassian](https://www.atlassian.com/fr/git/tutorials/what-is-version-control)
-* [Guide de survie Git](https://rogerdudler.github.io/git-guide/index.fr.html)
-* [Oh my Git!](https://ohmygit.org/)
-* [Git Purr ฅ^•ﻌ•^ฅ](https://girliemac.com/blog/2017/12/26/git-purr/)
-
-### Git Flow
-
-* [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
-* [Git Flow - Tutoriel Atlassian](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow)
-* [Git Flow Cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html)
-
 ## Cheatsheet
 
 <table>
@@ -111,3 +94,20 @@ M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes.
     </tr>
 </tbody>
 </table>
+
+## Ressources en ligne
+
+* [Git - la documentation](https://git-scm.com/doc)
+* [GitHub Skills](https://skills.github.com/)
+* [GitHub - Documentation](https://guides.github.com/)
+* [Guide du développement open-source](https://opensource.guide/fr/)
+* [Tutoriels Atlassian](https://www.atlassian.com/fr/git/tutorials/what-is-version-control)
+* [Guide de survie Git](https://rogerdudler.github.io/git-guide/index.fr.html)
+* [Oh my Git!](https://ohmygit.org/)
+* [Git Purr ฅ^•ﻌ•^ฅ](https://girliemac.com/blog/2017/12/26/git-purr/)
+
+### Git Flow
+
+* [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+* [Git Flow - Tutoriel Atlassian](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow)
+* [Git Flow Cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html)
