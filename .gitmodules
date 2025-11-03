@@ -1,0 +1,9 @@
+[submodule "personal-page"]
+	path = 04-GitHub_pages/personal-page
+	url = git@github.com:Segolene-Albouy/github-page-template.git
+[submodule "tnah-portfolio"]
+	path = 04-GitHub_pages/tnah-portfolio
+	url = git@github.com:Segolene-Albouy/Portfolio-TNAH.git
+[submodule "python-template"]
+	path = 05-Advanced_git/python-template
+	url = https://github.com/Segolene-Albouy/python-project-template
