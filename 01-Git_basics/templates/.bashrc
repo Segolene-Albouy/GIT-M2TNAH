@@ -46,17 +46,17 @@ color_echo() {
     echo "${color}${msg}${color_off}"
 }
 
-TODAY=$(date +%m-%d)
+# TODAY=$(date +%m-%d)
 
-function get_emoji() {
-    if [ "$TODAY" = "12-24" ]; then
-        echo "🎄"
-    elif [ "$TODAY" = "05-20" ]; then
-        echo "🎂"
-    else
-        echo "🔥"
-    fi
-}
+# function get_emoji() {
+#     if [ "$TODAY" = "12-24" ]; then
+#         echo "🎄"
+#     elif [ "$TODAY" = "05-20" ]; then
+#         echo "🎂"
+#     else
+#         echo "🔥"
+#     fi
+# }
 
 pre_prompt() {
     # Fonction pour personnaliser l'invite de commande
@@ -72,21 +72,19 @@ pre_prompt() {
 
     local venv=""
     if [ -n "$VIRTUAL_ENV" ]; then
-        venv=$(color_echo "blue" "($(basename $VIRTUAL_ENV))")
+        venv=$(color_echo "blue" " ($(basename $VIRTUAL_ENV))")
     elif [ -n "$CONDA_DEFAULT_ENV" ]; then
-        venv=$(color_echo "blue" "($CONDA_DEFAULT_ENV)" "3")
+        venv=$(color_echo "blue" " ($CONDA_DEFAULT_ENV)" "3")
     fi
 
      local user="$(color_echo "white" "\u" "1")"
      local host="$(color_echo "white" "\h")"
      local working_dir="$(color_echo "grey" "$(pwd)")"
 
-     local emoji=$(get_emoji)
-
      # utilisateur@hôte:dossier_courant [branche] (environnement virtuel)
-     # PS1="$user@$host:$working_dir $git$venv $ "
+     PS1="$user@$host:$working_dir $git$venv $ "
      # utilisateur:dossier_courant [branche] (environnement virtuel)
-     PS1="$user:$working_dir $emoji $git$venv $ "
+     # PS1="$user:$working_dir $emoji $git$venv $ "
 }
 
 # Pour rétablir l'invite de commande par défaut, commenter la ligne suivante (ajouter un # au début)
