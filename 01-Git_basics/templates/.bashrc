@@ -46,17 +46,16 @@ color_echo() {
     echo "${color}${msg}${color_off}"
 }
 
-# TODAY=$(date +%m-%d)
-
-# function get_emoji() {
-#     if [ "$TODAY" = "12-24" ]; then
-#         echo "🎄"
-#     elif [ "$TODAY" = "05-20" ]; then
-#         echo "🎂"
-#     else
-#         echo "🔥"
-#     fi
-# }
+TODAY=$(date +%m-%d)
+function get_emoji() {
+    if [ "$TODAY" = "12-24" ]; then
+        echo "🎄"
+    elif [ "$TODAY" = "05-20" ]; then
+        echo "🎂"
+    else
+        echo "🔥"
+    fi
+}
 
 pre_prompt() {
     # Fonction pour personnaliser l'invite de commande
@@ -79,12 +78,19 @@ pre_prompt() {
 
      local user="$(color_echo "white" "\u" "1")"
      local host="$(color_echo "white" "\h")"
-     local working_dir="$(color_echo "grey" "$(pwd)")"
+     # local working_dir="$(color_echo "grey" "$(pwd)")" # Affiche le chemin complet
+     local working_dir="$(color_echo "grey" "\w")"
+     # local emoji=$(get_emoji)
+     local end="$(color_echo "white" "\$")"
 
      # utilisateur@hôte:dossier_courant [branche] (environnement virtuel)
-     PS1="$user@$host:$working_dir $git$venv $ "
+     # PS1="$user@$host:$working_dir $git$venv $end "
+
+     # utilisateur:dossier_courant emoji [branche] (environnement virtuel)
+     # PS1="$user:$working_dir $emoji $git$venv $end "
+
      # utilisateur:dossier_courant [branche] (environnement virtuel)
-     # PS1="$user:$working_dir $emoji $git$venv $ "
+     PS1="$user:$working_dir $git$venv $end "
 }
 
 # Pour rétablir l'invite de commande par défaut, commenter la ligne suivante (ajouter un # au début)
@@ -96,3 +102,5 @@ alias gdiff='git fetch && git diff $(git_branch) origin/$(git_branch)'
 alias glog='git log --pretty=format:"%C(yellow)%h%C(reset)  (%C(green)%cn%C(reset))  %s"'
 # Commande pour ouvrir le bashrc et le recharger automatiquement une fois sorti de l'éditeur
 alias bashrc='nano ~/.bashrc && source ~/.bashrc'
+# Commande pour réinitialiser le bashrc à sa version originale
+alias reset_bashrc='curl -s https://gist.githubusercontent.com/marioBonales/1637696/raw/93a33aa5f1893f46773483250214f8b8b496a270/.bashrc > ~/.bashrc'
