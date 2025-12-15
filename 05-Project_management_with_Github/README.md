@@ -9,11 +9,8 @@
 
 ## Démarrage de projet
 
-> **Comment aborder un nouveau projet de développement ?**
-
-Tout projet commence par une phase de réflexion
-
-<hr>
+> #### Comment aborder un nouveau projet de développement ?
+> Tout projet commence par une phase de réflexion
 
 ### Étapes au démarrage
 
@@ -39,7 +36,6 @@ Tout projet commence par une phase de réflexion
 <hr>
 
 ### En pratique
-
 
 ```md
 1️⃣ Lister toutes les fonctionnalités
@@ -73,10 +69,7 @@ Quelles données inclure ? exclure ? Données personnelles ? Traçabilité ?
 ### Choisir une techno
 
 > Si on vous laisse choisir c'est que le client/manager/PI n'a pas d'avis : c'est une opportunité !
-> 
-> Pas de "mauvais" choix, que des compromis
-
-<hr>
+> #### Pas de "mauvais" choix, que des compromis
 
 #### Les options
 
@@ -88,17 +81,15 @@ Quelles données inclure ? exclure ? Données personnelles ? Traçabilité ?
 
 #### Exemple : créer un site
 
-| **Flask**                  | **Wordpress**                     | **Svelte**               |
-|----------------------------|-----------------------------------|--------------------------|
-| - Rapide à mettre en place | - Très répandu                    | - Nouveau et moderne     |
-| - Solution simple          | - Beaucoup de ressources en ligne | - Moins de documentation |
-
-<hr>
+| **Flask**                | **Wordpress**                   | **Svelte**             |
+|--------------------------|---------------------------------|------------------------|
+| Rapide à mettre en place | Très répandu                    | Nouveau et moderne     |
+| Solution simple          | Beaucoup de ressources en ligne | Moins de documentation |
 
 ### Dette technique
 
-> Évaluer si un choix sera préjudiciable à l'avenir (e.g. Cobol)
-> 
+> #### Évaluer si un choix sera préjudiciable à l'avenir
+> (e.g. Cobol)
 > C'est normal de réécrire du code qui a à peine 6 mois
 
 <hr>
@@ -123,7 +114,7 @@ Quelles données inclure ? exclure ? Données personnelles ? Traçabilité ?
 |-------------------------------------------|-------------------------------------------------|----------------------------------|
 | Chaos<br>Perte de temps<br>Zéro direction | **Flexible, rapide**<br>**Adaptation continue** | Rigide, lent<br>Décisions figées |
 
-> ### 💡 _Le développement agile favorise l'adaptation sur la prédiction_
+> #### 💡 _Le développement agile favorise l'adaptation sur la prédiction_
 
 <hr>
 
@@ -162,7 +153,7 @@ Réévaluer régulièrement ce qui est important
 ```md
 1️⃣ Automatiser ce qui est répétitif
 
-2️⃣ Itérer rapidement (mini changements)
+2️⃣ Itérer rapidement (mini-changements)
 
 3️⃣ Collaborer en continu
 
@@ -209,7 +200,7 @@ BACKLOG                     POINT EN ÉQUIPE
 
 <hr>
 
-### Importance du feedback
+### Importance du _feedback_
 
 #### ⚡️Rapide
 - Tests automatiques
@@ -236,6 +227,28 @@ Mettre à jour le backlog avec des nouvelles tâches
 
 #### ✅ Attribuer
 S'attribuer des tâches dans le backlog mis à jour
+
+### Rétrospective
+
+#### 🎯 Ce qui a marché
+- Quelles tâches terminées ?
+- Qu'est-ce qui a facilité le travail ?
+- Qu'est-ce qu'on veut reproduire ?
+
+#### 🚧 Ce qui a bloqué
+- Pourquoi certaines tâches ne sont pas finies ?
+- Quels obstacles imprévus ?
+- Où a-t-on perdu du temps ?
+
+#### 🪞 Ce qui me convient
+- Combien de tâches réalistes pour un sprint ?
+- Comment ce rythme m’affecte ?
+- Comment mieux ajuster la prochaine fois ?
+
+> #### 💡 _L'objectif n'est pas de blâmer, mais d'apprendre et d'améliorer_
+> Le rythme doit être ajusté pour que chacun·e se sente parfaitement à l'aise
+> Suffisamment stimulé·e par les tâches à accomplir
+> Sans être jamais se sentir débordé·e ou stressé·e
 
 <hr>
 
