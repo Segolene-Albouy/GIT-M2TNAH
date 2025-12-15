@@ -5,13 +5,13 @@ M2 Technologies Numériques Appliquées à l'Histoire à l'École des chartes.
 
 ## Programme du cours
 
-| Date        | Horaire     | Sujet                                                                                                                                                                                                                        |
-|-------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 13 octobre  | 15h00-17h00 | [Bases de git et environnement de code](https://docs.google.com/presentation/d/e/2PACX-1vRRJo_SUd24189nq2HBysZd9d57d1zRqks2vDCfBzDls6nqOySY3uGVHbR_SQlU3Rc3ibb8W4eV1Ipj/pub?start=false&loop=false&delayms=3000)             |
-| 27 octobre  | 15h00-17h00 | [GitHub](https://docs.google.com/presentation/d/e/2PACX-1vRFw1aa1ndHBuDF8A04KrDjOHGKs48CgEi_of2fhC1mm0rr1HErno39ymKD8XdUO0lAoZblIzhUSxlL/pub?start=false&loop=false&delayms=3000)                                            |
-| 3 novembre  | 10h00-12h00 | [Développement collaboratif avec GitHub](https://docs.google.com/presentation/d/e/2PACX-1vTlAnfpUqs3283UgymBG-Nu3NbdxftqnA3ddavqas6AodJJP7zu3CHa4ByOeEC71ug4UyL34Q-ZkPJc/pub?start=false&loop=false&delayms=3000)            |
-| 3 novembre  | 15h00-17h00 | [GitHub Pages](https://docs.google.com/presentation/d/e/2PACX-1vQstB-1DEwJs8RKzVP2-UH8Ol1NjSpqgvFPKqLMXPcLg0pdRUFObdE6p_4WgeCwV8toCXBqGDyNv3PX/pub?start=false&loop=false&delayms=3000)                                      |                                                                                                                                                                   |
-| 15 décembre | 15h00-17h00 | [_Test driven development_ et intégration continue](https://docs.google.com/presentation/d/e/2PACX-1vSHh_YRxsMAOTNGXu81FgYzCY0W0lUYjsulfh3qpD5aH9jkNSx_mTrsscxhVA4lLlH60O620yyG9Bt4/pub?start=false&loop=false&delayms=3000) |
+| Date        | Horaire     | Sujet                                                                                                                                                                                                             |
+|-------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 13 octobre  | 15h00-17h00 | [Bases de git et environnement de code](https://docs.google.com/presentation/d/e/2PACX-1vRRJo_SUd24189nq2HBysZd9d57d1zRqks2vDCfBzDls6nqOySY3uGVHbR_SQlU3Rc3ibb8W4eV1Ipj/pub?start=false&loop=false&delayms=3000)  |
+| 27 octobre  | 15h00-17h00 | [GitHub](https://docs.google.com/presentation/d/e/2PACX-1vRFw1aa1ndHBuDF8A04KrDjOHGKs48CgEi_of2fhC1mm0rr1HErno39ymKD8XdUO0lAoZblIzhUSxlL/pub?start=false&loop=false&delayms=3000)                                 |
+| 3 novembre  | 10h00-12h00 | [Développement collaboratif avec GitHub](https://docs.google.com/presentation/d/e/2PACX-1vTlAnfpUqs3283UgymBG-Nu3NbdxftqnA3ddavqas6AodJJP7zu3CHa4ByOeEC71ug4UyL34Q-ZkPJc/pub?start=false&loop=false&delayms=3000) |
+| 3 novembre  | 15h00-17h00 | [_GitHub Pages_](https://docs.google.com/presentation/d/e/2PACX-1vQstB-1DEwJs8RKzVP2-UH8Ol1NjSpqgvFPKqLMXPcLg0pdRUFObdE6p_4WgeCwV8toCXBqGDyNv3PX/pub?start=false&loop=false&delayms=3000)                         |                                                                                                                                                                   |
+| 15 décembre | 15h00-17h00 | [Management de projet agile](https://docs.google.com/presentation/d/e/2PACX-1vR0Ob6EbKB6nSu-4naujLqU77FeIZsO4DUariB17KNExVNba20oFv3f6whd7DKqv7NY85JdRNAv7Mg2/pub?start=false&loop=false&delayms=3000)             |
 
 ## Cheatsheet
 

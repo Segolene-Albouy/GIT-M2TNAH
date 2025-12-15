@@ -5,5 +5,5 @@
 	path = 04-GitHub_pages/tnah-portfolio
 	url = git@github.com:Segolene-Albouy/Portfolio-TNAH.git
 [submodule "python-template"]
-	path = 05-Advanced_git/python-template
+	path = 06-Bonus/python-template
 	url = https://github.com/Segolene-Albouy/python-project-template
