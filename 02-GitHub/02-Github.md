@@ -82,6 +82,7 @@ correspondant à la clé publique dont dispose GitHub.
    ssh-keygen -t ed25519
    # afficher le contenu de la clef publique
    cat ~/.ssh/id_ed25519.pub
+   # copier toute la ligne qui s'affiche, y compris "ssh-ed25519 ..."
    ```
 2. GitHub > Settings > SSH and GPG keys > [New](https://github.com/settings/ssh/new)
 3. Coller la clef publique affichée dans votre terminal 
