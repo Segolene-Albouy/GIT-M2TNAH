@@ -78,9 +78,15 @@ correspondant à la clé publique dont dispose GitHub.
 
 1. Créer une clef SSH depuis le terminal
    ```bash
-   # création de la paire de clefs (appuyer sur Entrée pour les options par défaut)
+   # création de la paire de clefs
    ssh-keygen -t ed25519
-   # afficher le contenu de la clef publique
+   # ℹ️ appuyer sur Enter pour les options par défaut
+   # la clef publique est enregistrée à l'emplacement indiqué après
+   ...
+   Your public key has been saved in <path>
+   ...
+   
+   # afficher le contenu de la clef publique (ou cat <path>) 
    cat ~/.ssh/id_ed25519.pub
    # copier toute la ligne qui s'affiche, y compris "ssh-ed25519 ..."
    ```
