@@ -1,29 +1,27 @@
-# Installer git
-sudo apt-get install git
+# EXERCICE 1 : INSTALLER ET CONFIGURER GIT
 
-# Configurer son utilisateur git de manière globale
+# 1. Installer git
+sudo apt-get update
+sudo apt install git
+
+# Vérifier l'installation
+git --version
+
+# 2. Configurer son utilisateur (⚠️ même nom et email que sur GitHub)
 git config --global user.name "<github-user>"
 git config --global user.email "<github-email>"
 
-# Définition de l’éditeur de par défaut
+# 3. Configurer git
 git config --global core.editor "nano"
-
-# Configuration de la coloration par défaut
-git config --global color.ui auto
-
-# Configuration du nom de la branche par défaut
 git config --global init.defaultBranch main
+git config --global color.ui auto
+git config --global pull.rebase false
 
-# Créer le dossier où initialiser le repository
-mkdir git_basics
+# 4. Vérifier la configuration
+git config --list
+# ✅ user.name et user.email apparaissent dans la liste
 
-# Se placer dans le dossier
-cd git_basics
-
-# Initialiser le repository
-git init
-
-# Lister tous le contenu du repository
-ls -a
-
-# (un dossier caché .git/ a été créé !)
+# 5. (Facultatif) Personnaliser son terminal
+cp ~/.bashrc ~/.bashrc.bak
+curl -s https://raw.githubusercontent.com/Segolene-Albouy/GIT-M2TNAH/refs/heads/main/01-Git_basics/templates/.bashrc >> ~/.bashrc
+source ~/.bashrc

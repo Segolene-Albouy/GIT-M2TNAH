@@ -1,26 +1,22 @@
-# DEPUIS SON IDE
+# EXERCICE 3 : RÉSUMER UN CHAPITRE
+# Les fichiers sont à modifier dans VSCode
 
-# 1. Ouvrir vitre repository en tant que nouveau projet
+# 1. Compléter le titre du chapitre et rédiger les 5 points
 
-# 2. Dans le terminal de l'IDE
-git switch -c my-branch
-git switch my-branch
+# 2. Inspecter les modifications
+git status
+# → chapitre-X.md est dans "Modifications qui ne seront pas validées"
+git diff
+# → lignes supprimées en rouge (-), lignes ajoutées en vert (+)
 
-# 3. Créer un dossier et y ajouter des fichiers avec du contenu
+# 3. Ajouter le fichier à la staging area
+git add chapitre-X.md
+git diff
+# → n'affiche plus rien : le fichier est dans la staging area
 
-# 4.Commit des modifications
-git add .
-git commit -m "Add new files"
+# 4. Commiter avec un message au format type(portée): description
+git commit -m "feat(chapitre-X): ajout du résumé en 5 points"
 
-# 5. Revenir à la branche principale
-git switch main
-
-# 6. Observer l'arborescence des fichiers du projet
-
-# 7. Fusionner la branche principale dans ma branche
-git switch my-branch
-git merge main
-
-# 8. Intégrer les modifications de ma branche dans la branche principale
-git switch main
-git merge my-branch
+# Vérification
+git log --oneline
+# → 3 commits

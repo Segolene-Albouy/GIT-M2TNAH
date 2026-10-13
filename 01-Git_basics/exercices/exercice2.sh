@@ -1,44 +1,33 @@
-# Création d'un repository
-mkdir repository
-cd repository
+# EXERCICE 2 : CRÉER SON REPOSITORY DE NOTE DE LECTURE
+
+# 1. Créer le dossier dans son dossier personnel
+mkdir ~/note-de-lecture
+
+# 2. L'ouvrir dans VSCode (File > Open Folder…)
+cd ~/note-de-lecture
+
+# 3. Depuis le terminal intégré (Ctrl+`) initialiser le repository
 git init
 
-# Création d'un fichier
-echo "Hello world!" > hello.txt
+# 4. Créer les fichiers README.md, chapitres et brouillon.txt
 
-# Afficher les modifications
-git status
-git diff
-
-# Ajouter le fichier la staging area
-git add hello.txt
-
-# Afficher les modifications
+# 5. Lister les fichiers : tous apparaissent dans "Fichiers non suivis"
 git status
 
-# Commiter les modifications
-git commit -m "Add hello.txt"
-
-# Afficher les modifications
+# 6. Ajouter uniquement le README, vérifier, puis commiter
+git add README.md
 git status
+# → README.md est dans "Modifications qui seront validées", les autres restent non suivis
+git commit -m "docs: création de la notice du mémoire"
 
-# Création et modification des fichiers
-echo "Bonjour le monde !" > bonjour.txt
-echo "Guten tag Welt!" > guten_tag.txt
-echo "How are you?" >> hello.txt
+# 7. Ajouter tous les fichiers chapitres en une seule commande, puis commiter
+git add chapitre-*.md
+git commit -m "feat: création des fiches chapitres"
 
-# Afficher les modifications
+# 8. brouillon.txt n'est jamais ajouté
+
+# Vérification
+git log --oneline
+# → 2 commits apparaissent
 git status
-git diff
-
-# Ajouter les fichiers à la staging area
-git add bonjour.txt guten_tag.txt hello.txt
-
-# Commiter les modifications
-git commit -m "Add bonjour.txt, guten_tag.txt and update hello.txt"
-
-# Afficher les modifications
-git status
-
-# Afficher l'historique des commits
-git log
+# → seul brouillon.txt reste dans "Fichiers non suivis"

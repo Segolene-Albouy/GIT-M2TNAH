@@ -1,41 +1,23 @@
-# EXERCICE PAR DEUX
+# EXERCICE 4 : LA MACHINE À REMONTER LE TEMPS
 
-# 1. L'un des étudiants crée un repository sur GitHub et invite l'autre étudiant en tant que collaborateur
+# 1. Supprimer les points 1 et 2 du résumé
 
-# 2. Les deux étudiants clone le repository en local
-git clone <url-du-repo>
+# 2. Inspecter les modifications
+git status
+# → chapitre-X.md est modifié
+git diff
+# → les points 1 et 2 apparaissent en rouge (-)
 
-# 3. Les deux étudiants créent des modifications sur la branche main
-echo "Hello world!" > hello.txt
-git add hello.txt
-git commit -m "Add hello.txt"
+# 3. Annuler la suppression
+git restore chapitre-X.md
+# → les points 1 et 2 réapparaissent dans VSCode
 
-# 4. Les étudiants publient leur code sur GitHub
-git pull # si besoin
-git push
+# 4. Afficher l'historique et repérer le hash du commit de création des fiches chapitres
+git log --oneline
+# a1b2c3d (HEAD -> main) feat(chapitre-1): ajout du résumé en 5 points
+# 4e5f6a7 feat: création des fiches chapitres     ← hash à copier
+# 8b9c0d1 docs: création de la notice du mémoire
 
-# 5. Après avoir mis à jour leur code en local, chaque étudiant crée une branche
-git switch -c my-branch
-
-# 6. Chaque étudiants modifient différement les mêmes fichiers
-echo "Hello le monde!" > hello.txt # étudiant 1
-echo "Bonjour tout le monde!" > hello.txt # étudiant 2
-
-# 7. Les étudiants publient leur code sur GitHub
-git add hello.txt
-git commit -m "Update hello.txt"
-git push --set-upstream origin my-branch
-git push
-
-# 8. Chaque étudiant récupère les modifications de l'autre
-git fetch
-git switch your-branch
-
-# 9. Les étudiants fusionnent les modifications de l'autre
-git merge my-branch
-
-# 10. Résolution du conflit dans l'IDE
-
-# 11. Finaliser le merge
-git add hello.txt
-git commit -m "Merge my-branch into your-branch"
+# 5. Afficher chapitre-X.md tel qu'il était dans ce commit (remplacer 4e5f6a7 par VOTRE hash)
+git show 4e5f6a7:chapitre-X.md
+# → la version initiale, avec les 5 points vides

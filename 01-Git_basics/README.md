@@ -2,13 +2,17 @@
 
 ## Plan du cours
 
+> ### [▶️ Slides du cours](https://docs.google.com/presentation/d/e/2PACX-1vRRJo_SUd24189nq2HBysZd9d57d1zRqks2vDCfBzDls6nqOySY3uGVHbR_SQlU3Rc3ibb8W4eV1Ipj/pub?start=false&loop=false&delayms=3000)
+> 
 > 1. [Git](#git) : Comment & pourquoi utiliser le _versioning_
 > 2. [Installer et configurer Git](#exercice-1--installer-et-configurer-git)
 > 3. [IDE](#utiliser-un-ide) : Prise en main d’un logiciel de développement
-> 4. [Sauvegarder des versions](#sauvegarder-des-versions--le-cycle-du-commit) : `init`, `status`, `diff`, `add`, `commit`
-> 5. [Remonter le temps](#remonter-le-temps) : `log`, `show`, `restore`
+> 4. [Premier commit](#création-de-son-premier-commit) : `init`, `status`, `diff`, `add`, `commit`, `log`
+> 5. [Remonter le temps](#remonter-le-temps) : `restore`, `show`
 > 6. [Les branches](#les-branches) : `branch`, `switch`
-> 7. [La fusion de branches](#la-fusion-de-branches) : `merge`, `rebase`, conflits
+> 7. [La fusion de branches](#la-fusion-de-branches) : `merge`, `rebase`
+> 8. [Les conflits](#les-conflits)
+> 9. [Récapitulatif](#ce-que-vous-savez-faire-maintenant)
 
 <hr>
 
@@ -94,7 +98,7 @@ on parle de _**`merge`**_ ou de _**`rebase`**_.
 # Ouvrir son terminal (Ctrl+Alt+T sur Ubuntu)
 
 # Mise à jour des dépendances système
-sudo apt-get update # Mac: brew update
+sudo apt-get update # Mac: brew update (nécessite Homebrew : https://brew.sh)
 
 # Installation de git
 sudo apt install git # Mac: brew install git
@@ -103,7 +107,7 @@ sudo apt install git # Mac: brew install git
 git --version
 ```
 
-[Correction](https://github.com/Segolene-Albouy/GIT-M2TNAH/blob/main/01-Git_basics/exercices/exercice1.sh)
+[Correction](./exercices/exercice1.sh)
 
 <hr>
 
@@ -165,8 +169,8 @@ curl -s https://raw.githubusercontent.com/Segolene-Albouy/GIT-M2TNAH/refs/heads/
 # recharger la config pour voir les effets
 source ~/.bashrc
 
-# rétablir le .bashrc backup
-cp ~/.bashrc.bak ~/.bashrc
+# SI BESOIN DE RÉTABLIR L'ANCIEN BASHRC
+# cp ~/.bashrc.bak ~/.bashrc
 ```
 
 Avec l'ajout de ces commandes, vous pouvez désormais :
@@ -269,7 +273,7 @@ Par exemple :
 
 Ouvrir le menu des _Keyboard Shortcuts_ : `Ctrl+K Ctrl+S`
 
-| Defaut                    | Action                                                  | Denomination                       |
+| Défaut                    | Action                                                  | Dénomination                       |
 |---------------------------|---------------------------------------------------------|------------------------------------|
 | `Ctrl+D`                  | Sélectionner la prochaine occurrence du mot sélectionné | _Add Selection To Next Find Match_ |
 | `Shift+Ctrl+K`            | Supprimer la ligne courante                             | _Delete Line_                      |
@@ -459,7 +463,7 @@ git ouvre l'éditeur de texte du terminal pour y écrire le message.
 # Votre branche est à jour avec 'origin/main'.
 #
 # Modifications qui seront validées :
-#       modifié :         added_file.txt
+#       modifié :         added_file.txt
 #
 # Fichiers non suivis:
 #       other_file_that_was_not_added.txt
@@ -486,7 +490,10 @@ git ouvre l'éditeur de texte du terminal pour y écrire le message.
 git log
 
 # historique compact (récent en haut)
-git log -oneline
+git log --oneline # glog
+
+# graphe de l’historique de toutes les branches
+git log --oneline --graph --all
 
 # quitter avec q
 ```
@@ -513,8 +520,8 @@ Structure du _repository_ que vous allez construire :
 
 ```
 note-de-lecture/
-├── README.md          # notice bibliographique du mémoire
-├── chapitre-N.md      # votre résumé en 5 points (N = numéro de votre chapitre)
+├── README.md          # notice du mémoire
+├── chapitre-N.md      # votre résumé en 5 points (N = numéro du chapitre)
 ├── biblio.md          # références bibliographiques du mémoire
 └── brouillon.txt      # vos notes personnelles, qui ne seront jamais sauvegardées dans git
 ```
@@ -525,33 +532,33 @@ note-de-lecture/
 2. L’ouvrir dans VSCode
 3. Initialiser un _repository_ git
 4. Créer les fichiers suivants :
-   - `README.md` : la notice du mémoire (modèle plus haut)
+   - `README.md` : la notice du mémoire
      ```md
      # <titre du mémoire>
      
      - Auteur·ice :
      - Titre :
      - Année de soutenance :
-     - Lien HAL : 
+     - Lien HAL :
      ```
-   - `chapitre-N.md` : Autant de fichiers chapitres que de chapitres dans votre partie
+   - `chapitre-N.md` : autant de fichiers que de chapitres dans votre partie (`chapitre-1.md`, `chapitre-2.md`…)
      ```md
      # Chapitre N : <titre du chapitre>
-     - 1.
-     - 2.
-     - 3.
-     - 4.
-     - 5. 
+     1.
+     2.
+     3.
+     4.
+     5.
      ```
-   - `brouillon.txt` : une ligne présentant le projet (« Note de lecture du mémoire X, groupe Y »)
-5. Lister les fichiers modifiés et inspecter les changements
-6. Ajouter le README (vide) à la _staging area_ et faire un commit spécifique
-7. Ajouter tous les fichiers chapitres (vides) à la _staging area_ et faire un commit spécifique
-8. Ne jamais ajouter `brouillon.txt`
+   - `brouillon.txt` : vos notes personnelles
+4. Lister les fichiers modifiés et inspecter les changements
+5. Ajouter le README (vide) à la _staging area_ et faire un commit spécifique
+6. Ajouter tous les fichiers chapitres (vides) à la _staging area_ et faire un commit spécifique
+7. Ne jamais ajouter `brouillon.txt`
 
-✅ **RÉUSSI SI** : `git log --oneline` affiche **2 commits**
+✅ **RÉUSSI SI** : `git log --oneline` affiche **2 commits** et `git status` n’affiche plus que `brouillon.txt`
 
-[Correction](https://github.com/Segolene-Albouy/GIT-M2TNAH/blob/main/01-Git_basics/exercices/exercice2.sh)
+[Correction](./exercices/exercice2.sh)
 
 <hr>
 
@@ -570,13 +577,13 @@ Pour faire un bon commit :
 Comparez ces deux historiques d’une même note de lecture :
 
 ```
-❌ Historique A                       ✅ Historique B
------------------------------------   ------------------------------------------------
-f3a1c2e final2                        f3a1c2e [doc] (chapitre-2) rédaction du point 5
-9b8d7e6 final                         9b8d7e6 [fix] (reference) correction de l’année
-4c5d6e7 aaa                           4c5d6e7 [doc] (chapitre-2) rédaction des points 3 et 4
-1a2b3c4 modifs                        1a2b3c4 [doc] (chapitre-2) rédaction des points 1 et 2
-0e9f8a7 wip                           0e9f8a7 [feature] création de la note de lecture
+❌ Historique A        ✅ Historique B
+--------------------   ------------------------------------------------------
+f3a1c2e final2         f3a1c2e feat(chapitre-2): rédaction du point 5
+9b8d7e6 final          9b8d7e6 fix(readme): correction de l’année de soutenance
+4c5d6e7 aaa            4c5d6e7 feat(chapitre-2): rédaction des points 3 et 4
+1a2b3c4 modifs         1a2b3c4 feat(chapitre-2): rédaction des points 1 et 2
+0e9f8a7 wip            0e9f8a7 docs: création de la notice du mémoire
 ```
 
 > 💡 **Règle** : un commit = une modification que l’on peut résumer en **une phrase**.
@@ -596,39 +603,51 @@ Ne jamais commiter :
 
 #### 3️⃣ Le bon message
 
-**Le message de commit parfait**
+**Le message de commit parfait** (convention [_Conventional Commits_](https://www.conventionalcommits.org/fr/), simplifiée)
 
-> #### `[type] (scope) description`
+> #### `type(portée): description`
 
-[//]: # (TODO faire au plus simple)
-L’idée, c'est de pouvoir identifier rapidement l’objet du commit :
+L’idée, c'est de pouvoir identifier rapidement l’objet du commit. On choisit le `type` parmi **5 mots-clés** :
 
-- **`type`** : catégorie de la modification 
-  - `[refacto]` pour le nettoyage de code,
-  - `[fix] `pour les résolutions de bugs, 
-  - `[update]` pour les modifications
-  - `[feature]` pour les ajouts de fonctionnalités
-  - `[doc]` pour la documentation
-  - `[test]` pour les tests
-- **`scope`** : partie du projet impactée (optionnel), e.g. `(api)`, `(login)`, `(database)`, `(search)`, etc.
-- **`description`** : court résumé des modifications effectuées (max 1 phrase)
+| `type`     | Quand l’utiliser ?                            | Exemple                                                 |
+|------------|-----------------------------------------------|---------------------------------------------------------|
+| `feat`     | j’**ajoute** du contenu ou une fonctionnalité | `feat(chapitre-2): ajout du résumé en 5 points`         |
+| `fix`      | je **corrige** une erreur                     | `fix(readme): correction de l’année de soutenance`      |
+| `docs`     | je modifie la **documentation** (README)      | `docs(readme): ajout du lien HAL`                       |
+| `refactor` | je **réorganise** ou reformule                | `refactor(chapitre-2): reformulation des points 3 et 4` |
+| `test`     | j’ajoute ou modifie des **tests** (cours 5)   | `test: vérification du format de students.json`         |
+
+- **`type`** : un des 5 mots-clés, en minuscules
+- **`(portée)`** : facultative, le fichier ou la partie du projet concernée
+- **`description`** : une seule phrase courte de description
 
 > 💭 Pensez à votre vous du futur : est-ce que je vais encore me comprendre dans 6 mois ?
 
 <hr>
 
-### Exercice 4 : Rédiger le bon message 
+### Le bon message
 
-[//]: # (TODO ajouter un lien)
-🗳️ **Sur Mentimeter** 
+🗳️ [Quiz : le meilleur message de commit](https://www.menti.com/alobkjosmvr3)
 
 1. Pour chacun des `git diff` affichés à l’écran, proposer un message de commit
 2. Voter pour le meilleur message parmi les propositions
-3. Remplir la fiche d'un `chapitre-N.md` (titre d'un chapitre et 5 points descriptif)
-4. Inspecter avec `git status` et `git diff`
-5. Ajouter et créer un message de commit au top 💯
 
 <hr>
+
+### Exercice 3 : Résumer un chapitre
+
+1. Dans un de vos `chapitre-N.md`, compléter le titre du chapitre et rédiger les 5 points
+2. Inspecter avec `git status` et `git diff`
+3. Ajouter le fichier à la _staging area_
+4. Commiter avec un message au top 💯
+
+✅ **RÉUSSI SI** : `git log --oneline` affiche **3 commits**
+
+[Correction](./exercices/exercice3.sh)
+
+<hr>
+
+## Remonter le temps
 
 ### Annuler et retrouver : `git restore` et `git show`
 
@@ -650,15 +669,17 @@ git restore --source=<hash> <path/to/file>
 
 <hr>
 
-### Exercice 5 : La machine à remonter le temps
+### Exercice 4 : La machine à remonter le temps
 
-1. Dans `chapitre-N.md`, supprimer les points 1 et 2 de votre résumé
+1. Dans le `chapitre-N.md` résumé à l’exercice 3, supprimer les points 1 et 2
 2. Inspecter avec `git status` et `git diff`
 3. Restaurer le fichier avec `git restore`
-4. Afficher l’historique et copier le hash de votre tout premier commit sur `chapitre-N.md`
+4. Afficher l’historique et copier le hash de votre premier commit sur `chapitre-N.md`
 5. Afficher le contenu de `chapitre-N.md` tel qu’il était dans ce commit avec `git show`
 
 ✅ **RÉUSSI SI** : vos points 1 et 2 sont revenus dans VSCode + `git show` affiche la version initiale avec les 5 points vides
+
+[Correction](./exercices/exercice4.sh)
 
 <hr>
 
@@ -666,12 +687,16 @@ git restore --source=<hash> <path/to/file>
 
 ### Qu’est-ce qu’une branche ?
 
-[//]: # (TODO rendre plus clair mais néanmoins exact)
+Une branche est une **suite de commits** qui avance indépendamment des autres.
+On peut la voir comme un état alternatif du _repository_.
 
-Une branche peut être comprise comme un état alternatif du _repository_.
-Pour être plus précis, une branche n'est qu'un pointeur vers un commit en particulier.
-L'historique de la branche correspond donc à la série de commits qui se termine sur le commit pointé.
-Les fichiers ne sont donc pas dupliqués sur le disque, mais changer de branche remplace le contenu des fichiers du dossier par celui de la branche.
+Concrètement, une branche n'est qu'un **pointeur** vers un commit, le dernier de cette suite.
+À chaque nouveau commit sur la branche, le pointeur change avance sur ce nouveau commit.
+
+Conséquences :
+- créer une branche ne copie aucun fichier
+- changer de branche remplace le contenu des fichiers du dossier
+- les fichiers non suivis (comme `brouillon.txt`) n’appartiennent à aucune branche : ils restent visibles quelle que soit la branche
 
 > 📍 `HEAD` désigne la branche sur laquelle vous vous trouvez : c’est le « Vous êtes ici » du plan.
 
@@ -682,7 +707,7 @@ Les fichiers ne sont donc pas dupliqués sur le disque, mais changer de branche 
 <img src="../images/branch.png" alt="création de branche">
 
 La nouvelle branche prend pour point de départ la branche depuis laquelle on l’a créée.
-Il n’est donc pas possible de créer une branche à partir d’une où aucun commit m’a été effectué.
+Il faut donc au moins un commit dans le _repository_ avant de créer une branche.
 ⚠️ Avant de changer de branche, on commite !
 
 ```bash
@@ -732,8 +757,9 @@ Tous les conflits éventuels sont résolus une seule fois dans ce commit de merg
 > 🗒️ Lorsque git crée un commit de merge, il ouvre l’éditeur (nano) avec un message automatique 
 > (`Merge branch '...' into '...'`) : il suffit d’enregistrer et de quitter
 
+**Le _fast-forward_.**
 Si la branche courante **n’a reçu aucun nouveau commit** depuis la création de l’autre branche, 
-il n’y a rien à combiner : git se contente d'ajouter les commits de la branche à rapatrier à la branche courante.
+il n’y a rien à combiner : git se contente de faire pointer la branche courante sur le dernier commit de la branche à merger.
 L'historique reste linéaire.
 
 <hr>
@@ -800,25 +826,23 @@ Les conflits éventuels sont résolus séparément pour chaque commit recréé.
 
 <hr>
 
-#### Exercice 6 : Effectuer un merge sur VSCode
-
-[//]: # (TODO vérifier que c'est praticable)
+#### Exercice 5 : Effectuer un merge sur VSCode
 
 ```md
 1. Dans son _repository_ `note-de-lecture` ouvert sur VSCode
 2. Créer une branche `biblio` et s’y déplacer
-3. Ajouter `biblio.md` : ajouter une référence du mémoire
-4. Depuis le terminal intégré, commiter le fichier
+3. Créer `biblio.md` et y ajouter une référence citée dans le mémoire
+4. Depuis le terminal intégré, ajouter et commiter le fichier
 5. Revenir sur `main` et observer l'arborescence de fichiers
-6. Sur `main`, remplir les informations sur le mémoire dans le README
+6. Sur `main`, remplir les informations sur le mémoire dans le `README.md` et commiter
 7. Afficher le graphe : `git log --oneline --graph --all`
-8. Revenir sur `biblio` et fusionner main dans sa branche
-9. Depuis main, merger sa branche
+8. Revenir sur `biblio` et fusionner main
+9. Depuis main, merger biblio
 ```
 
 ✅ **RÉUSSI SI** : `git log --oneline --graph --all` montre la fourche puis la réunion.
 
-[Correction](./exercices/exercice3.sh)
+[Correction](./exercices/exercice5.sh)
 
 <hr>
 
@@ -901,19 +925,21 @@ il est nécessaire de choisir manuellement quelle modification doit être conser
 
 <hr>
 
-#### Exercice 7 : Provoquer et résoudre un conflit
+#### Exercice 6 : Provoquer et résoudre un conflit
 
 ```md
 1. Depuis `main`, créer une branche `titre-a`, y modifier le titre du `README.md` et commiter
 2. Revenir sur `main`, créer une branche `titre-b`, y modifier LA MÊME ligne autrement et commiter
-3. Revenir sur `main` et merger `titre-a`
-4. Toujours sur `main`, merger `titre-b`
+3. Revenir sur `main` et merger `titre-a` (fast-forward)
+4. Toujours sur `main`, merger `titre-b` (conflit)
 5. Résoudre le conflit dans le Merge Editor en combinant les deux propositions
 6. Finaliser le merge
 7. Afficher le graphe : `git log --oneline --graph --all`
 ```
 
 ✅ **RÉUSSI SI** : `README.md` ne contient plus aucun marqueur `<<<<<<<` / `=======` / `>>>>>>>`
+
+[Correction](./exercices/exercice6.sh)
 
 <hr>
 
@@ -923,9 +949,7 @@ il est nécessaire de choisir manuellement quelle modification doit être conser
 
 <hr>
 
-## Récapitulatif
-
-### Ce que vous savez faire maintenant
+## Ce que vous savez faire maintenant
 
 1. ✅ Transformer un dossier en _repository_ Git
 2. ✅ Savoir à tout moment où vous en êtes dans vos modifications

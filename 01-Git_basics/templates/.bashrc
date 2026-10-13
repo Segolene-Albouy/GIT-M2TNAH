@@ -1,106 +1,140 @@
-BRANCH=""
+# ============================================================
+#  Terminal M2 TNAH : branche git dans l'invite + raccourcis git
+# ============================================================
 
-git_branch() {
-    # Fonction pour récupérer le nom de la branch courante
-    if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
-        local branch_name=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
+# Ne rien faire si le terminal n'est pas interactif
+case $- in *i*) ;; *) return ;; esac
 
-        if [ -n "$branch_name" ]; then
-            echo "$branch_name"
-        fi
-    fi
-}
+# ---------- Réglages ----------
+
+# Afficher un emoji dans l'invite : 1 = oui, 0 = non
+SHOW_EMOJI=0
+# Date d'anniversaire pour l'emoji 🎂 (format MM-JJ, ex. 05-20)
+BDAY="MM-DD"
+
+# ---------- Différences entre bash et zsh ----------
+
+ESC=$'\033'
+if [ -n "$ZSH_VERSION" ]; then
+    RC_FILE=~/.zshrc
+    P_USER='%n'; P_HOST='%m'; P_DIR='%~'; P_END='%(!.#.$)'
+    P_OPEN='%{'; P_CLOSE='%}'
+else
+    RC_FILE=~/.bashrc
+    P_USER='\u'; P_HOST='\h'; P_DIR='\w'; P_END='\$'
+    P_OPEN='\['; P_CLOSE='\]'
+fi
+
+# ---------- Couleurs ----------
 
 get_color() {
     color="${1:-white}"
-    style="${2:-0}" # 0 (normal) / 1 (bold) / 2 (dim) / 3 (italic) / 4 (underline) / 5 (blink) / 7 (reverse) / 8 (hidden)
-    is_bright="${3:-0}" # 0 or 1
+    style="${2:-0}"     # 0 (normal) / 1 (gras) / 2 (pâle) / 3 (italique) / 4 (souligné)
+    is_bright="${3:-0}" # 0 ou 1
 
-    shade=""
-    if [ "$is_bright" = 1 ]; then
-        shade="9"
-    else
-        shade="3"
-    fi
+    shade="3"
+    [ "$is_bright" = 1 ] && shade="9"
 
     case "$color" in
-        "black") echo "\[\033[${style};${shade}0m\]";;
-        "red") echo "\[\033[${style};${shade}1m\]";;
-        "green") echo "\[\033[${style};${shade}2m\]";;
-        "yellow") echo "\[\033[${style};${shade}3m\]";;
-        "blue") echo "\[\033[${style};${shade}4m\]";;
-        "purple") echo "\[\033[${style};${shade}5m\]";;
-        "cyan") echo "\[\033[${style};${shade}6m\]";;
-        "white") echo "\[\033[${style};37m\]";;
-        "gray") echo "\[\033[${style};90m\]";;
-        *) echo "\[\033[0m\]";; # Default color
+        "black")  code="${shade}0" ;;
+        "red")    code="${shade}1" ;;
+        "green")  code="${shade}2" ;;
+        "yellow") code="${shade}3" ;;
+        "blue")   code="${shade}4" ;;
+        "purple") code="${shade}5" ;;
+        "cyan")   code="${shade}6" ;;
+        "white")  code="37" ;;
+        "gray")   code="90" ;;
+        *)        code="0" ;;
+    esac
+    echo "${P_OPEN}${ESC}[${style};${code}m${P_CLOSE}"
+}
+
+# Usage : color_echo <couleur> <texte> [style] [is_bright]
+color_echo() {
+    echo "$(get_color "$1" "$3" "$4")$2${P_OPEN}${ESC}[0m${P_CLOSE}"
+}
+
+# ---------- Informations affichées ----------
+
+# Nom de la branche courante (ou hash du commit si aucune branche n'est active)
+git_branch() {
+    git symbolic-ref --short -q HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null
+}
+
+get_emoji() {
+    case $(date +%m-%d) in
+        12-24) echo "🎄" ;;
+        $BDAY) echo "🎂" ;;
+        *)     echo "🔥" ;;
     esac
 }
 
-color_echo() {
-    msg=$2
-    # color / style / is_bright
-    color=$(get_color $1 $3 $4)
-
-    color_off='\[\033[0m\]'
-    echo "${color}${msg}${color_off}"
-}
-
-TODAY=$(date +%m-%d)
-function get_emoji() {
-    if [ "$TODAY" = "12-24" ]; then
-        echo "🎄"
-    elif [ "$TODAY" = "05-20" ]; then
-        echo "🎂"
-    else
-        echo "🔥"
-    fi
-}
+# ---------- Invite de commande ----------
 
 pre_prompt() {
-    # Fonction pour personnaliser l'invite de commande
+    BRANCH=$(git_branch)
+    ENV_NAME=${VIRTUAL_ENV##*/}
+    ENV_NAME=${ENV_NAME:-$CONDA_DEFAULT_ENV}
 
-    if [ "$(git_branch)" != "$BRANCH" ]; then
-        BRANCH=$(git_branch)
+    # En zsh, un % dans un nom de branche serait interprété : on le double
+    if [ -n "$ZSH_VERSION" ]; then
+        BRANCH=${BRANCH//\%/%%}
+        ENV_NAME=${ENV_NAME//\%/%%}
     fi
 
-    local git=""
-    if [ -n "$BRANCH" ]; then
-        git=$(color_echo "purple" "[$BRANCH]")
-    fi
+    local git="" env="" emoji=""
+    [ -n "$BRANCH" ] && git=$(color_echo "purple" ' [$BRANCH]')
+    [ -n "$ENV_NAME" ] && env=$(color_echo "blue" ' ($ENV_NAME)')
+    [ "$SHOW_EMOJI" = 1 ] && emoji=" $(get_emoji)"
 
-    local venv=""
-    if [ -n "$VIRTUAL_ENV" ]; then
-        venv=$(color_echo "blue" " ($(basename $VIRTUAL_ENV))")
-    elif [ -n "$CONDA_DEFAULT_ENV" ]; then
-        venv=$(color_echo "blue" " ($CONDA_DEFAULT_ENV)" "3")
-    fi
+    local user=$(color_echo "white" "$P_USER" "1")
+    local host=$(color_echo "white" "$P_HOST")
+    local dir=$(color_echo "gray" "$P_DIR")
+    local end=$(color_echo "white" "$P_END")
 
-     local user="$(color_echo "white" "\u" "1")"
-     local host="$(color_echo "white" "\h")"
-     # local working_dir="$(color_echo "grey" "$(pwd)")" # Affiche le chemin complet
-     local working_dir="$(color_echo "grey" "\w")"
-     # local emoji=$(get_emoji)
-     local end="$(color_echo "white" "\$")"
+    # utilisateur@hôte:dossier [branche] (environnement) $
+    # PS1="$user@$host:$dir$git$env $end "
 
-     # utilisateur@hôte:dossier_courant [branche] (environnement virtuel)
-     # PS1="$user@$host:$working_dir $git$venv $end "
+    # utilisateur:dossier emoji [branche] (environnement) $
+    # PS1="$user:$dir$emoji$git$env $end "
 
-     # utilisateur:dossier_courant emoji [branche] (environnement virtuel)
-     # PS1="$user:$working_dir $emoji $git$venv $end "
-
-     # utilisateur:dossier_courant [branche] (environnement virtuel)
-     PS1="$user:$working_dir $git$venv $end "
+    # utilisateur:dossier [branche] (environnement) $
+    PS1="$user:$dir$emoji$git$env $end "
 }
 
-# Pour rétablir l'invite de commande par défaut, commenter la ligne suivante (ajouter un # au début)
-PROMPT_COMMAND=pre_prompt
+# Exécuter pre_prompt avant chaque nouvelle ligne de commande
+# (pour rétablir l'invite par défaut, commenter ce bloc)
+if [ -n "$ZSH_VERSION" ]; then
+    setopt PROMPT_SUBST
+    autoload -Uz add-zsh-hook
+    add-zsh-hook precmd pre_prompt
+else
+    case ";$PROMPT_COMMAND;" in
+        *";pre_prompt;"*) ;;
+        *) PROMPT_COMMAND="${PROMPT_COMMAND:+${PROMPT_COMMAND%;};}pre_prompt" ;;
+    esac
+fi
 
-# Commande pour voir la différence entre sa branche locale et la branche remote
-alias gdiff='git fetch && git diff $(git_branch) origin/$(git_branch)'
-# Commande pour afficher les logs selon le format "commit_hash (utilisateur) commit_msg"
-alias glog='git log --pretty=format:"%C(yellow)%h%C(reset)  (%C(green)%cn%C(reset))  %s"'
-# Commande pour ouvrir le bashrc et le recharger automatiquement une fois sorti de l'éditeur
-alias bashrc='nano ~/.bashrc && source ~/.bashrc'
-# Commande pour réinitialiser le bashrc à sa version originale
-alias reset_bashrc='curl -s https://gist.githubusercontent.com/marioBonales/1637696/raw/93a33aa5f1893f46773483250214f8b8b496a270/.bashrc > ~/.bashrc'
+# ---------- Raccourcis ----------
+
+# Retire d'éventuels anciens alias portant le même nom que les fonctions ci-dessous
+unalias gdiff bashrc reset_bashrc 2>/dev/null
+
+# Historique compact : hash (auteur) message
+alias glog='git log --pretty=format:"%C(yellow)%h%C(reset)  (%C(green)%an%C(reset))  %s"'
+
+# Différences entre la branche locale et sa version distante (à partir du cours 2)
+gdiff() { git fetch && git diff HEAD "@{upstream}" "$@"; }
+
+# Ouvrir la configuration du terminal, puis la recharger à la fermeture de l'éditeur
+bashrc() { nano "$RC_FILE" && . "$RC_FILE"; }
+
+# Restaurer la sauvegarde faite avant l'installation de cette configuration
+reset_bashrc() {
+    if [ -f "$RC_FILE.bak" ]; then
+        cp "$RC_FILE.bak" "$RC_FILE" && echo "Configuration restaurée : ouvrez un nouveau terminal"
+    else
+        echo "Aucune sauvegarde trouvée ($RC_FILE.bak)"
+    fi
+}
