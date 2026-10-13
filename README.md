@@ -34,6 +34,11 @@
         <td>Lister les fichiers modifiés/indexés</td>
     </tr>
     <tr>
+        <td><img alt="git diff" src="images/diff.png"></td>
+        <td><pre>git diff</pre></td>
+        <td>Afficher le contenu des différences entre le dernier commit et les fichiers modifiés depuis le dernier commit</td>
+    </tr>
+    <tr>
         <td><img alt="git add" src="images/add.png"></td>
         <td><pre>git add &lt;path&gt;</pre><hr><pre>git add -A</pre></td>
         <td>Ajouter un fichier à la <i>staging area</i><hr>Ajouter tous les fichiers modifiés</td>
@@ -44,9 +49,9 @@
         <td>Valider les modifications avec un message</td>
     </tr>
     <tr>
-        <td><img alt="git diff" src="images/diff.png"></td>
-        <td><pre>git diff</pre></td>
-        <td>Afficher le contenu des différences entre le dernier commit et les fichiers modifiés depuis le dernier commit</td>
+        <td><img alt="git diff" src="images/restore.png"></td>
+        <td><pre>git restore</pre></td>
+        <td>Revenir à un état précédent du code</td>
     </tr>
     <tr>
         <td><img alt="git branch" src="images/branch.png"></td>

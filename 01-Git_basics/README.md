@@ -329,11 +329,11 @@ La création d’un commit, se fait en plusieurs étapes :
 
 Un fichier peut être dans **trois états** :
 
-| Section de `git status`                    | Signification                                                           | Couleur | VSCode            |
-|--------------------------------------------|-------------------------------------------------------------------------|---------|-------------------|
-| _Modifications qui seront validées_        | fichier indexé (« addé »), sera inclus dans le prochain commit          | vert    | _Staged Changes_  |
-| _Modifications qui ne seront pas validées_ | fichier déjà suivi, modifié depuis le dernier commit, pas encore indexé | rouge   | _Changes_ (**M**) |
-| _Fichiers non suivis_                      | nouveau fichier, jamais ajouté à git                                    | rouge   | _Changes_ (**U**) |
+| Section de `git status`                    | Signification                                                           | Couleur |
+|--------------------------------------------|-------------------------------------------------------------------------|---------|
+| _Modifications qui seront validées_        | fichier indexé (« addé »), sera inclus dans le prochain commit          | vert    |
+| _Modifications qui ne seront pas validées_ | fichier déjà suivi, modifié depuis le dernier commit, pas encore indexé | rouge   |
+| _Fichiers non suivis_                      | nouveau fichier, jamais ajouté à git                                    | rouge   |
 
 Exemple :
 ```bash
@@ -449,7 +449,7 @@ git commit -m "<commit-message>"
 
 <hr>
 
-**🚨ALERTE : oubli du `-m` après `commit` !**
+**🚨 ALERTE : oubli du `-m` après `commit` !**
 
 Lorsqu'on ne précise pas directement le message avec l'argument `-m`, 
 git ouvre l'éditeur de texte du terminal pour y écrire le message.
@@ -551,10 +551,10 @@ note-de-lecture/
      5.
      ```
    - `brouillon.txt` : vos notes personnelles
-4. Lister les fichiers modifiés et inspecter les changements
-5. Ajouter le README (vide) à la _staging area_ et faire un commit spécifique
-6. Ajouter tous les fichiers chapitres (vides) à la _staging area_ et faire un commit spécifique
-7. Ne jamais ajouter `brouillon.txt`
+5. Lister les fichiers modifiés et inspecter les changements
+6. Ajouter le README (vide) à la _staging area_ et faire un commit spécifique
+7. Ajouter tous les fichiers chapitres (vides) à la _staging area_ et faire un commit spécifique
+8. Ne jamais ajouter `brouillon.txt`
 
 ✅ **RÉUSSI SI** : `git log --oneline` affiche **2 commits** et `git status` n’affiche plus que `brouillon.txt`
 
@@ -566,13 +566,48 @@ note-de-lecture/
 
 Pour faire un bon commit :
 
-1. **Le bon moment** : Commiter lorsqu’on a achevé une modification significative. Privilégier les petits commits.
-2. **Le bon contenu** : Ne commiter que les fichiers pertinents, si on a entamé plusieurs chantiers, les commiter un par un
-3. **Le bon message** : Chaque commit est documenté avec un message résumant les modifications : il doit être explicite et concis
+1. **Le bon contenu** : Ne commiter que les fichiers pertinents, si on a entamé plusieurs chantiers, les commiter un par un
+2. **Le bon message** : Chaque commit est documenté avec un message résumant les modifications : il doit être explicite et concis
+3. **Le bon moment** : Commiter lorsqu’on a achevé une modification significative. Privilégier les petits commits.
 
 <hr>
 
-#### 1️⃣ Le bon moment
+#### 1️⃣ Le bon contenu
+
+Si plusieurs chantiers sont en cours, on les commite séparément grâce à la _staging area_.
+
+Ne jamais commiter :
+- des fichiers personnels ou de brouillon
+- des fichiers générés automatiquement (`__pycache__/`, `.DS_Store`, etc.)
+- des mots de passe ou clés d’accès
+
+<hr>
+
+#### 2️⃣ Le bon message
+
+**Le message de commit parfait** (convention [_Conventional Commits_](https://www.conventionalcommits.org/fr/), simplifiée)
+
+> #### `type(scope): description`
+
+L’idée, c'est de pouvoir identifier rapidement l’objet du commit. On choisit le `type` parmi **5 mots-clés** :
+
+| `type`     | Quand l’utiliser ?                            | Exemple                                                 |
+|------------|-----------------------------------------------|---------------------------------------------------------|
+| `feat`     | j’**ajoute** du contenu ou une fonctionnalité | `feat(chapitre-2): ajout du résumé en 5 points`         |
+| `fix`      | je **corrige** une erreur                     | `fix(readme): correction de l’année de soutenance`      |
+| `docs`     | je modifie la **documentation** (README)      | `docs(readme): ajout du lien HAL`                       |
+| `refactor` | je **réorganise** ou reformule                | `refactor(chapitre-2): reformulation des points 3 et 4` |
+| `test`     | j’ajoute ou modifie des **tests** (cours 5)   | `test: vérification du format de students.json`         |
+
+- **`type`** : un des 5 mots-clés, en minuscules
+- **`(scope)`** : facultative, le fichier ou la partie du projet concernée
+- **`description`** : une seule phrase courte de description
+
+> 💭 Pensez à votre vous du futur : est-ce que je vais encore me comprendre dans 6 mois ?
+
+<hr>
+
+#### 3️⃣ Le bon moment
 
 Comparez ces deux historiques d’une même note de lecture :
 
@@ -586,60 +621,24 @@ f3a1c2e final2         f3a1c2e feat(chapitre-2): rédaction du point 5
 0e9f8a7 wip            0e9f8a7 docs: création de la notice du mémoire
 ```
 
-> 💡 **Règle** : un commit = une modification que l’on peut résumer en **une phrase**.
-
-<hr>
-
-#### 2️⃣ Le bon contenu
-
-Si plusieurs chantiers sont en cours, on les commite séparément grâce à la _staging area_.
-
-Ne jamais commiter :
-- des fichiers personnels ou de brouillon
-- des fichiers générés automatiquement (`__pycache__/`, `.DS_Store`, etc.)
-- des mots de passe ou clés d’accès
-
-<hr>
-
-#### 3️⃣ Le bon message
-
-**Le message de commit parfait** (convention [_Conventional Commits_](https://www.conventionalcommits.org/fr/), simplifiée)
-
-> #### `type(portée): description`
-
-L’idée, c'est de pouvoir identifier rapidement l’objet du commit. On choisit le `type` parmi **5 mots-clés** :
-
-| `type`     | Quand l’utiliser ?                            | Exemple                                                 |
-|------------|-----------------------------------------------|---------------------------------------------------------|
-| `feat`     | j’**ajoute** du contenu ou une fonctionnalité | `feat(chapitre-2): ajout du résumé en 5 points`         |
-| `fix`      | je **corrige** une erreur                     | `fix(readme): correction de l’année de soutenance`      |
-| `docs`     | je modifie la **documentation** (README)      | `docs(readme): ajout du lien HAL`                       |
-| `refactor` | je **réorganise** ou reformule                | `refactor(chapitre-2): reformulation des points 3 et 4` |
-| `test`     | j’ajoute ou modifie des **tests** (cours 5)   | `test: vérification du format de students.json`         |
-
-- **`type`** : un des 5 mots-clés, en minuscules
-- **`(portée)`** : facultative, le fichier ou la partie du projet concernée
-- **`description`** : une seule phrase courte de description
-
-> 💭 Pensez à votre vous du futur : est-ce que je vais encore me comprendre dans 6 mois ?
+> 💡 **Règle** : un commit = une modification que l’on peut résumer en **une phrase**
 
 <hr>
 
 ### Le bon message
 
 🗳️ [Quiz : le meilleur message de commit](https://www.menti.com/alobkjosmvr3)
-
-1. Pour chacun des `git diff` affichés à l’écran, proposer un message de commit
-2. Voter pour le meilleur message parmi les propositions
+Pour chacun des `git diff` affichés à l’écran, proposer un message de commit
 
 <hr>
 
-### Exercice 3 : Résumer un chapitre
+### Exercice 3 :  
 
 1. Dans un de vos `chapitre-N.md`, compléter le titre du chapitre et rédiger les 5 points
-2. Inspecter avec `git status` et `git diff`
-3. Ajouter le fichier à la _staging area_
-4. Commiter avec un message au top 💯
+2. Afficher la liste des fichiers modifiés
+3. Inspecter le contenu du fichier modifié
+4. Ajouter le fichier à la _staging area_
+5. Commiter avec un message au top 💯
 
 ✅ **RÉUSSI SI** : `git log --oneline` affiche **3 commits**
 
@@ -672,10 +671,10 @@ git restore --source=<hash> <path/to/file>
 ### Exercice 4 : La machine à remonter le temps
 
 1. Dans le `chapitre-N.md` résumé à l’exercice 3, supprimer les points 1 et 2
-2. Inspecter avec `git status` et `git diff`
-3. Restaurer le fichier avec `git restore`
+2. Afficher la liste des fichiers modifiés et copier le _path_ de la fiche
+3. Revenir à la version non-modifiée de la fiche
 4. Afficher l’historique et copier le hash de votre premier commit sur `chapitre-N.md`
-5. Afficher le contenu de `chapitre-N.md` tel qu’il était dans ce commit avec `git show`
+5. Afficher le contenu de `chapitre-N.md` tel qu’il était dans ce commit
 
 ✅ **RÉUSSI SI** : vos points 1 et 2 sont revenus dans VSCode + `git show` affiche la version initiale avec les 5 points vides
 
