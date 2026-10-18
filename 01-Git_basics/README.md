@@ -2,8 +2,8 @@
 
 ## Plan du cours
 
-> ### [▶️ Slides du cours](https://docs.google.com/presentation/d/e/2PACX-1vRRJo_SUd24189nq2HBysZd9d57d1zRqks2vDCfBzDls6nqOySY3uGVHbR_SQlU3Rc3ibb8W4eV1Ipj/pub?start=false&loop=false&delayms=3000)
-> 
+### [▶️ Slides du cours](https://docs.google.com/presentation/d/e/2PACX-1vRRJo_SUd24189nq2HBysZd9d57d1zRqks2vDCfBzDls6nqOySY3uGVHbR_SQlU3Rc3ibb8W4eV1Ipj/pub?start=false&loop=false&delayms=3000)
+
 > 1. [Git](#git) : Comment & pourquoi utiliser le _versioning_
 > 2. [Installer et configurer Git](#exercice-1--installer-et-configurer-git)
 > 3. [IDE](#utiliser-un-ide) : Prise en main d’un logiciel de développement
