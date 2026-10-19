@@ -66,7 +66,7 @@ const showQuestion = i => {
     render(`${header()}${q.type === 'text'
         ? '<input class="input is-medium mb-4" id="text" maxlength="100">'
         : optionsOf(q).map((o, k) => `<button class="button is-fullwidth is-medium mb-2" data-k="${k}">${esc(o)}</button>`).join('')}
-    <button class="button is-primary is-medium mt-3" data-action="submit">${isHost ? 'Afficher les résultats' : 'Valider'}</button>`);
+    <button class="button is-link is-medium mt-3" data-action="submit">${isHost ? 'Afficher les résultats' : 'Valider'}</button>`);
     if (isHost) setState({q: i, reveal: false}).catch(fail);
 };
 

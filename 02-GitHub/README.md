@@ -599,7 +599,7 @@ git switch <branch-name>
 
 ### Interro surprise ! 😱
 
-🗳️ [Quiz : récapitulatif du cours](https://www.menti.com/alnk2ysfkizf)
+🗳️ [Quiz : récapitulatif du cours](https://segolene-albouy.github.io/GIT-M2TNAH/quiz/?quiz=git-2)
 
 <hr>
 

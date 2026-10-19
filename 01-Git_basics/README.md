@@ -944,7 +944,7 @@ il est nécessaire de choisir manuellement quelle modification doit être conser
 
 ### Interro surprise ! 😱
 
-🗳️ [Quiz : la bonne commande](https://www.menti.com/alehkfzvthiu)
+🗳️ [Quiz : la bonne commande](https://segolene-albouy.github.io/GIT-M2TNAH/quiz/?quiz=git-1)
 
 <hr>
 
