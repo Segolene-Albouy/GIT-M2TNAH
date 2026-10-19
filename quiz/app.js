@@ -76,6 +76,21 @@ const renderTally = q => {
     <progress class="progress ${color(k)}" value="${n}" max="${answers.length || 1}"></progress>`).join('');
 };
 
+const plural = n => `${n} réponse${n > 1 ? 's' : ''}`;
+const listenAnswers = callback => {
+    unsubscribe();
+    unsubscribe = onValue(ref(db, `${base}/answers/${index}`), snapshot => {
+        answers = Object.values(snapshot.val() ?? {}).flatMap(a => {
+            try {
+                return [JSON.parse(a)];
+            } catch {
+                return [];
+            }
+        });
+        callback();
+    }, fail);
+};
+
 const showQuestion = i => {
     unsubscribe();
     index = i;
@@ -84,8 +99,11 @@ const showQuestion = i => {
     app.innerHTML = `${header()}${q.type === 'text'
         ? '<input class="input is-medium mb-4" id="text" maxlength="100">'
         : optionsOf(q).map((o, k) => `<button class="button is-fullwidth is-medium mb-2" data-k="${k}">${esc(o)}</button>`).join('')}
-    <button class="button is-link is-medium mt-3" data-action="submit">${isHost ? 'Afficher les résultats' : 'Valider'}</button>`;
-    if (isHost) setState({q: i, reveal: false});
+    <button class="button is-link is-medium mt-3" data-action="submit">${isHost ? 'Afficher les résultats' : 'Valider'}</button>
+    ${isHost ? '<p class="subtitle mt-4" id="count"></p>' : ''}`;
+    if (!isHost) return;
+    setState({q: i, reveal: false});
+    listenAnswers(() => app.querySelector('#count').textContent = plural(answers.length));
 };
 
 const renderResults = () => {
@@ -101,18 +119,8 @@ const renderResults = () => {
 };
 
 const showResults = () => {
-    unsubscribe();
     screen = 'results';
-    unsubscribe = onValue(ref(db, `${base}/answers/${index}`), snapshot => {
-        answers = Object.values(snapshot.val() ?? {}).flatMap(a => {
-            try {
-                return [JSON.parse(a)];
-            } catch {
-                return [];
-            }
-        });
-        renderResults();
-    }, fail);
+    listenAnswers(renderResults);
 };
 
 const followHost = () => onValue(ref(db, `${base}/state`), snapshot => {
