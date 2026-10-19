@@ -1,0 +1,59 @@
+{
+  "title": "Github",
+  "questions": [
+    {
+      "type": "single",
+      "text": "Lequel fonctionne sans connexion internet ?",
+      "choices": ["git", "GitHub", "les deux", "aucun"],
+      "answer": "git"
+    },
+    {
+      "type": "single",
+      "text": "Comment identifier son ordinateur auprès de Github ?",
+      "choices": ["Avec son username local", "Avec une paire de clef SSH", "Avec l'authentification en ligne", "Avec un token"],
+      "answer": ["Avec une paire de clef SSH", "Avec un token"]
+    },
+    {
+      "type": "single",
+      "text": "! [rejected] main -> main (fetch first) : que faire ?",
+      "choices": ["git push --force", "git pull puis git push", "supprimer le repo", "git commit"],
+      "answer": "git pull puis git push"
+    },
+    {
+      "type": "single",
+      "text": "git pull est l'équivalent de :",
+      "choices": ["git clone", "git fetch + git merge", "git push à l'envers", "git restore"],
+      "answer": "git fetch + git merge"
+    },
+    {
+      "type": "single",
+      "text": "« Votre branche est en avance sur 'origin/main' de 2 commits » signifie :",
+      "choices": ["mes commits ne sont pas encore sur GitHub", "GitHub a 2 commits que je n'ai pas", "il y a un conflit"],
+      "answer": "mes commits ne sont pas encore sur GitHub"
+    },
+    {
+      "type": "single",
+      "text": "fatal : La branche courante n'a pas de branche amont →",
+      "choices": ["git pull", "git switch main", "git push -u origin <branche>"],
+      "answer": "git push -u origin <branche>"
+    },
+    {
+      "type": "single",
+      "text": "Permission denied (publickey) vient le plus probablement :",
+      "choices": ["d'un mauvais user.email", "de la clé SSH absente de GitHub", "d'un conflit"],
+      "answer": "de la clé SSH absente de GitHub"
+    },
+    {
+      "type": "single",
+      "text": "Comment empêcher un fichier d'arriver sur GitHub ?",
+      "choices": ["ne jamais l'ajouter", "le lister dans .gitignore", "le supprimer avant chaque push"],
+      "answer": "le lister dans .gitignore"
+    },
+    {
+      "type": "single",
+      "text": "Bon ordre avant de partager son travail :",
+      "choices": ["push → commit → pull", "commit → pull → push", "pull → push → commit"],
+      "answer": "commit → pull → push"
+    }
+  ]
+}

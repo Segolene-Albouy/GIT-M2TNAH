@@ -1,0 +1,113 @@
+{
+  "title": "Les commandes git",
+  "questions": [
+    {
+      "type": "text",
+      "text": "Transformer un dossier en dépôt : git …",
+      "answer": [
+        "init",
+        "git init"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Savoir ce qui a changé (fichiers) : git …",
+      "answer": [
+        "status",
+        "git status"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Voir le contenu des modifications : git …",
+      "answer": [
+        "diff",
+        "git diff"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Mettre un fichier dans la staging area : git …",
+      "answer": [
+        "add",
+        "git add"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Tout mettre tous les fichiers dans la staging area : git …",
+      "answer": [
+        "add .",
+        "add -A",
+        "add --all",
+        "git add .",
+        "git add -A",
+        "git add --all"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Sauvegarder les fichiers addés",
+      "answer": [
+        "commit",
+        "commit -m",
+        "git commit",
+        "git commit -m"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Voir l'historique : git …",
+      "answer": [
+        "log",
+        "log --oneline",
+        "git log",
+        "git log --oneline"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Annuler mes modifications non commitées : git …",
+      "answer": [
+        "restore",
+        "git restore"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Créer une branche et y aller : git …",
+      "answer": [
+        "switch -c",
+        "checkout -b",
+        "git switch -c",
+        "git checkout -b"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Changer de branche : git …",
+      "answer": [
+        "switch",
+        "checkout",
+        "git switch",
+        "git checkout"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Lister les branches : git …",
+      "answer": [
+        "branch",
+        "git branch"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Faire entrer une branche dans la branche courante : git …",
+      "answer": [
+        "merge",
+        "git merge"
+      ]
+    }
+  ]
+}
