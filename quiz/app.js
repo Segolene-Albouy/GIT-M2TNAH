@@ -13,7 +13,8 @@ const FIREBASE_CONFIG = {
     projectId: "course-quizz",
     storageBucket: "course-quizz.firebasestorage.app",
     messagingSenderId: "938684445854",
-    appId: "1:938684445854:web:920d59943bc7f30339378f"
+    appId: "1:938684445854:web:920d59943bc7f30339378f",
+    databaseURL: 'https://course-quizz-default-rtdb.europe-west1.firebasedatabase.app/',
 };
 
 const params = new URLSearchParams(location.search);
