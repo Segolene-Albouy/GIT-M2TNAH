@@ -1,7 +1,5 @@
 # Exercice 9 : Réunir sa note de lecture (par groupe)
 
-# ---------- Partie A : mise en place ----------
-
 # 1. [Personne A] https://github.com/new
 #    Nom : note-de-lecture-groupe / cocher "Add a README file"
 
@@ -10,14 +8,10 @@
 # 3. [Autres] Accepter l'invitation reçue par email
 
 # 4. [Tous] Se placer EN DEHORS de note-de-lecture, puis cloner
-cd ~/Documents
-pwd
 git clone git@github.com:<user-A>/note-de-lecture-groupe.git
 
 # 5. [Tous] VSCode > File > Open Folder > note-de-lecture-groupe
 cd note-de-lecture-groupe
-
-# ---------- Partie B : réunir les chapitres ----------
 
 # 6. Copier ses chapitres (ou glisser-déposer dans l'explorateur VSCode)
 cp ../note-de-lecture/chapitre-*.md .

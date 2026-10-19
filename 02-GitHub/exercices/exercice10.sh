@@ -1,6 +1,6 @@
 # Exercice 10 : Chacun·e sa notice, puis fusion (par groupe)
 
-# ---------- Partie A : travailler en parallèle ----------
+# ---------- Partie 1 : travailler en parallèle ----------
 
 # 1. Récupérer la dernière version de main
 git switch main
@@ -22,7 +22,7 @@ git push -u origin notice-<prenom>
 # → tous les push réussissent : chaque branche est indépendante,
 #   le conflit n'apparaîtra qu'au moment de fusionner
 
-# ---------- Partie B : relire et fusionner ----------
+# ---------- Partie 2 : relire et fusionner ----------
 
 # 6. Lire la notice d'un·e camarade
 git fetch

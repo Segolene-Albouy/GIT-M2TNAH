@@ -382,7 +382,7 @@ git pull
 
 <hr>
 
-### Ma branche, et la « photo » de GitHub : `origin/main`
+### Ma branche et la « photo » de GitHub : `origin/main`
 
 Votre _repository_ local contient **deux** versions de `main` :
 
@@ -433,23 +433,18 @@ que `push` et `pull` permettent de synchroniser.
 
 ### Exercice 9 : Réunir sa note de lecture (par groupe)
 
-**Partie 1 : mise en place**
-
 1. Une personne crée sur GitHub le _repository_ `note-de-lecture-groupe` en cochant **Add a README file**
 2. Elle ajoute les autres membres du groupe comme collaborateurs
 3. Les autres acceptent l’invitation reçue par email
 4. Chacun·e clone `note-de-lecture-groupe` avec le lien SSH
 5. Chacun·e ouvre le dossier cloné dans VSCode
-
-**Partie 2 : réunir les chapitres**
-
 6. Copier ses fichiers `chapitre-N.md` depuis `note-de-lecture/` vers `note-de-lecture-groupe/`
 7. Ajouter les fichiers et commiter avec un message au top 💯
 8. Publier ses commits sur GitHub
 
 > _Que se passe-t-il ? Pourquoi ?_
 
-9. Lire attentivement le message du terminal, puis faire ce qu’il faut pour publier
+Lire attentivement le message du terminal, puis faire ce qu’il faut pour publier
 
 ✅ **RÉUSSI SI** : la page GitHub du _repository_ affiche les chapitres de tout le groupe
 
@@ -483,7 +478,7 @@ git push
 > 🗒️ Variante du même problème : `! [rejected] main -> main (non-fast-forward)`
 > (vous avez déjà récupéré les commits avec `fetch`, mais pas encore fusionné). Même solution.
 >
-> Si le `pull` provoque un conflit, on le résout avec le Merge Editor
+> Si le `pull` provoque un conflit, on le résout avec le _Merge Editor_
 
 <hr>
 
@@ -604,7 +599,7 @@ git switch <branch-name>
 
 ### Interro surprise ! 😱
 
-🗳️ [Quiz : récapitulatif du cours](https://www.menti.com/)
+🗳️ [Quiz : récapitulatif du cours](https://www.menti.com/alnk2ysfkizf)
 
 <hr>
 
