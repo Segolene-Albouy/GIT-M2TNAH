@@ -475,36 +475,51 @@ git pull
 git push
 ```
 
-> 🗒️ Variante du même problème : `! [rejected] main -> main (non-fast-forward)`
-> (vous avez déjà récupéré les commits avec `fetch`, mais pas encore fusionné). Même solution.
->
-> Si le `pull` provoque un conflit, on le résout avec le _Merge Editor_
-
-<hr>
-
-### 😭 GitHub veut pas m’autoriser à _pusher_ !
+### 😭 J’ai fait `git pull` comme on m’a dit, et ça marche toujours paaaas !
 
 On commence par lire le message de son terminal :
 
 ```bash
-remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
-
-fatal: Authentication failed for 'https://github.com/username/repo.git/'
+$ git pull
+...
+fatal: refusing to merge unrelated histories
 ```
 
-Le _repository_ a été cloné avec le lien **HTTPS**, et git demande un mot de passe : 
-GitHub ne l’accepte plus depuis 2021. Deux solutions :
+**Pourquoi ?** Pour fusionner, git cherche le dernier commit commun aux deux branches. Ici, il n’y en a aucun :
+Les deux historiques n'ont aucun commit commun : ce sont deux projets distincts aux yeux de git. 
 
-1. **Passer au lien SSH** (recommandé dans ce cours)
-   ```bash
-   # Vérifier l’URL actuelle du remote
-   git remote -v
-   
-   # La remplacer par le lien SSH du repository
-   git remote set-url origin git@github.com:<user>/<repo>.git
-   ```
-2. **Rester en HTTPS** avec un [_personal access token_](https://github.com/settings/tokens) saisi à la place du mot de passe, 
-   ou en vous connectant à GitHub dans VSCode
+**Solution** : confirmer à git que la fusion est voulue.
+
+```bash
+git pull --allow-unrelated-histories
+
+# résoudre les conflits éventuels dans le Merge Editor
+git push
+```
+
+[//]: # (### 😭 GitHub veut pas m’autoriser à _pusher_ !)
+[//]: # ()
+[//]: # (On commence par lire le message de son terminal :)
+[//]: # ()
+[//]: # (```bash)
+[//]: # (remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.)
+[//]: # ()
+[//]: # (fatal: Authentication failed for 'https://github.com/username/repo.git/')
+[//]: # (```)
+[//]: # ()
+[//]: # (Le _repository_ a été cloné avec le lien **HTTPS**, et git demande un mot de passe : )
+[//]: # (GitHub ne l’accepte plus depuis 2021. Deux solutions :)
+[//]: # ()
+[//]: # (1. **Passer au lien SSH** &#40;recommandé dans ce cours&#41;)
+[//]: # (   ```bash)
+[//]: # (   # Vérifier l’URL actuelle du remote)
+[//]: # (   git remote -v)
+[//]: # (   )
+[//]: # (   # La remplacer par le lien SSH du repository)
+[//]: # (   git remote set-url origin git@github.com:<user>/<repo>.git)
+[//]: # (   ```)
+[//]: # (2. **Rester en HTTPS** avec un [_personal access token_]&#40;https://github.com/settings/tokens&#41; saisi à la place du mot de passe, )
+[//]: # (   ou en vous connectant à GitHub dans VSCode)
 
 <hr>
 
