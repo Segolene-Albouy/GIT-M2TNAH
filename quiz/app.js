@@ -12,6 +12,15 @@ if (params.get('host')) {
     history.replaceState(null, '', `?${params}`);
 }
 
+const startAt = isHost && params.has('q') ? params.get('q') - 1 : null;
+
+if (params.get('host')) localStorage.hostKey = params.get('host');
+if (isHost) {
+    params.set('host', '');
+    params.delete('q');
+    history.replaceState(null, '', `?${params}`);
+}
+
 let quiz, state, index, timer;
 
 const esc = s => String(s).replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`);
@@ -120,6 +129,6 @@ fetch(`quizzes/${quizId}.json`)
         quiz = data;
         document.title = quiz.title;
         ({state} = await get());
-        showQuestion(state?.q ?? 0);
+        showQuestion(startAt ?? state?.q ?? 0);
     })
     .catch(err => render(`<div class="notification is-danger">${esc(err)}</div>`));
