@@ -142,8 +142,10 @@ git config --global init.defaultBranch main
 git config --global color.ui auto
 
 # Choix de merge comme mode de fusion lors d’un pull
-# (pull sera vu au cours 2)
 git config --global pull.rebase false
+
+# Toujours utiliser SSH pour pusher
+git config --global url."git@github.com:".pushInsteadOf "https://github.com/"
 
 # Afficher vos configurations
 git config --list
