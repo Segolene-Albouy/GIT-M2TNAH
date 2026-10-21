@@ -485,7 +485,7 @@ $ git pull
 fatal: refusing to merge unrelated histories
 ```
 
-**Pourquoi ?** Pour fusionner, git cherche le dernier commit commun aux deux branches. Ici, il n’y en a aucun :
+**Pourquoi ?** Pour fusionner, git cherche le dernier commit commun aux deux branches. Ici, il n’y en a aucun.
 Les deux historiques n'ont aucun commit commun : ce sont deux projets distincts aux yeux de git. 
 
 **Solution** : confirmer à git que la fusion est voulue.
@@ -560,25 +560,24 @@ git branch -a
 git switch <branch-name>
 ```
 
-<hr>
-
-### Rappel : la règle du merge en 2 temps
-
-> **Avant de fusionner, on met à jour**
-
-```bash
-# 0. Récupérer la dernière version de main
-[main] git pull
-
-# 1. Mettre sa branche à jour avec main : les conflits éventuels apparaissent sur SA branche
-[main] git switch my-branch
-[my-branch] git merge main
-
-# 2. Fusionner sa branche dans main, puis publier
-[my-branch] git switch main
-[main] git merge my-branch
-[main] git push
-```
+[//]: # (<hr>)
+[//]: # (### Rappel : la règle du merge en 2 temps)
+[//]: # ()
+[//]: # (> **Avant de fusionner, on met à jour**)
+[//]: # ()
+[//]: # (```bash)
+[//]: # (# 0. Récupérer la dernière version de main)
+[//]: # ([main] git pull)
+[//]: # ()
+[//]: # (# 1. Mettre sa branche à jour avec main : les conflits éventuels apparaissent sur SA branche)
+[//]: # ([main] git switch my-branch)
+[//]: # ([my-branch] git merge main)
+[//]: # ()
+[//]: # (# 2. Fusionner sa branche dans main, puis publier)
+[//]: # ([my-branch] git switch main)
+[//]: # ([main] git merge my-branch)
+[//]: # ([main] git push)
+[//]: # (```)
 
 <hr>
 
