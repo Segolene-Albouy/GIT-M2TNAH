@@ -433,7 +433,7 @@ que `push` et `pull` permettent de synchroniser.
 
 ### Exercice 9 : Réunir sa note de lecture (par groupe)
 
-1. Une personne crée sur GitHub le _repository_ `note-de-lecture-groupe` en cochant **Add a README file**
+1. Une personne crée sur GitHub le _repository_ `note-de-lecture-groupe` **public** en cochant **Add a README file**
 2. Elle ajoute les autres membres du groupe comme collaborateurs
 3. Les autres acceptent l’invitation reçue par email
 4. Chacun·e clone `note-de-lecture-groupe` avec le lien SSH

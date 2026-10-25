@@ -8,7 +8,7 @@
       "answer": "git"
     },
     {
-      "type": "single",
+      "type": "multiple",
       "text": "Comment identifier son ordinateur auprès de Github ?",
       "choices": ["Avec son username local", "Avec une paire de clef SSH", "Avec l'authentification en ligne", "Avec un token"],
       "answer": ["Avec une paire de clef SSH", "Avec un token"]

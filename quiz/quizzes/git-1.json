@@ -3,7 +3,7 @@
   "questions": [
     {
       "type": "text",
-      "text": "Transformer un dossier en dépôt : git …",
+      "text": "Transformer un dossier en repository : git …",
       "answer": [
         "init",
         "git init"
