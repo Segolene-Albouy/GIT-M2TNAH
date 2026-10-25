@@ -1,0 +1,65 @@
+{
+  "title": "Collaborer sur GitHub",
+  "questions": [
+    {
+      "type": "single",
+      "text": "Une pull request, c'est :",
+      "choices": ["un git pull lancé depuis GitHub", "une demande de fusion d'une branche, ouverte à la relecture", "une copie du repository sur son compte", "une liste de tâches"],
+      "answer": "une demande de fusion d'une branche, ouverte à la relecture"
+    },
+    {
+      "type": "single",
+      "text": "À quoi sert une issue dans un projet de groupe ?",
+      "choices": ["fusionner deux branches", "décrire une tâche ou un problème à traiter", "annuler un commit", "protéger main"],
+      "answer": "décrire une tâche ou un problème à traiter"
+    },
+    {
+      "type": "single",
+      "text": "Avant d'ouvrir sa PR, depuis sa branche, on se synchronise avec :",
+      "choices": ["git merge main", "git fetch puis git merge origin/main", "git push --force", "git rebase main"],
+      "answer": "git fetch puis git merge origin/main"
+    },
+    {
+      "type": "single",
+      "text": "Où écrire « Closes #3 » pour que l'issue se ferme au merge de la PR ?",
+      "choices": ["dans le titre de la PR", "dans la description de la PR", "dans le nom de la branche", "dans un commentaire de review"],
+      "answer": "dans la description de la PR"
+    },
+    {
+      "type": "single",
+      "text": "Le reviewer demande des corrections. Que faire ?",
+      "choices": ["fermer la PR et en ouvrir une nouvelle", "commiter et pusher sur la même branche", "pusher directement sur main", "supprimer la branche"],
+      "answer": "commiter et pusher sur la même branche"
+    },
+    {
+      "type": "single",
+      "text": "J'ai cliqué sur « Commit suggestion » sur GitHub. Avant de commiter à nouveau en local :",
+      "choices": ["git pull sur ma branche", "git switch main", "rien de spécial", "git branch -d"],
+      "answer": "git pull sur ma branche"
+    },
+    {
+      "type": "single",
+      "text": "Ma PR vient d'être mergée sur GitHub. Sur mon ordinateur, main :",
+      "choices": ["est à jour automatiquement", "est en retard : git switch main puis git pull", "a été supprimée", "contient un conflit"],
+      "answer": "est en retard : git switch main puis git pull"
+    },
+    {
+      "type": "single",
+      "text": "remote: error: GH006: Protected branch update failed signifie :",
+      "choices": ["ma clé SSH est invalide", "main est protégée : il faut passer par une PR", "il y a un conflit", "le repository n'existe pas"],
+      "answer": "main est protégée : il faut passer par une PR"
+    },
+    {
+      "type": "single",
+      "text": "Je veux corriger le repository d'un groupe dont je ne suis pas collaborateur :",
+      "choices": ["je le clone et je pushe", "je le forke, je pushe sur mon fork, puis j'ouvre une PR", "je demande leur clé SSH", "je crée une branche sur leur repository"],
+      "answer": "je le forke, je pushe sur mon fork, puis j'ouvre une PR"
+    },
+    {
+      "type": "single",
+      "text": "Dans une PR depuis un fork, le « base repository » est :",
+      "choices": ["mon fork", "le repository d'origine, qui reçoit les modifications", "mon dossier local", "la branche main de mon fork"],
+      "answer": "le repository d'origine, qui reçoit les modifications"
+    }
+  ]
+}
