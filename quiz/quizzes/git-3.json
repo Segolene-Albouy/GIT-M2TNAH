@@ -33,21 +33,9 @@
     },
     {
       "type": "single",
-      "text": "J'ai cliqué sur « Commit suggestion » sur GitHub. Avant de commiter à nouveau en local :",
-      "choices": ["git pull sur ma branche", "git switch main", "rien de spécial", "git branch -d"],
-      "answer": "git pull sur ma branche"
-    },
-    {
-      "type": "single",
       "text": "Ma PR vient d'être mergée sur GitHub. Sur mon ordinateur, main :",
       "choices": ["est à jour automatiquement", "est en retard : git switch main puis git pull", "a été supprimée", "contient un conflit"],
       "answer": "est en retard : git switch main puis git pull"
-    },
-    {
-      "type": "single",
-      "text": "remote: error: GH006: Protected branch update failed signifie :",
-      "choices": ["ma clé SSH est invalide", "main est protégée : il faut passer par une PR", "il y a un conflit", "le repository n'existe pas"],
-      "answer": "main est protégée : il faut passer par une PR"
     },
     {
       "type": "single",
