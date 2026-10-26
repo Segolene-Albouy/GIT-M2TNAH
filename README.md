@@ -1,4 +1,4 @@
-# Cours Git et bonnes pratiques de développement !
+# Cours Git et bonnes pratiques de développement ?
 
 > [!NOTE]
 > Ce *repository* constitue un dépôt pour le contenu pédagogique du cours « Git & bonnes pratiques de code » du
