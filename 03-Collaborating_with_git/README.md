@@ -229,6 +229,19 @@ Où écrire le mot-clé :
 
 <hr>
 
+### Exercice 12 : Résoudre son _issue_ avec une PR (par groupe)
+
+1. Sur `main`, récupérer la dernière version du _repository_
+2. Créer une branche nommée d’après son _issue_ (ex. `biblio-commune`) et s’y déplacer
+3. Réaliser la tâche décrite dans l’_issue_, puis ajouter et commiter avec un message au top
+4. Se synchroniser avec la dernière version de `main` publiée sur GitHub
+5. Publier sa branche
+6. Ouvrir une PR vers `main` : `Closes #N` dans la description, un·e camarade en _reviewer_
+
+[Correction](./exercices/exercice12.sh)
+
+<hr>
+
 ## La _review_
 
 ### Pourquoi relire ?
@@ -331,24 +344,17 @@ Elle demande de se connecter à son compte GitHub dans VSCode.
 
 <hr>
 
-### Exercice 12 : Résoudre son _issue_ avec une PR (par groupe)
+### Exercice 13 : Passer en revue une _Pull Request_
 
-1. Sur `main`, récupérer la dernière version du _repository_
-2. Créer une branche nommée d’après son _issue_ (ex. `biblio-commune`) et s’y déplacer
-3. Réaliser la tâche décrite dans l’_issue_, puis ajouter et commiter avec un message au top
-4. Se synchroniser avec la dernière version de `main` publiée sur GitHub
-5. Publier sa branche
-6. Ouvrir une PR vers `main` : titre conventionnel, `Closes #N` dans la description, un·e camarade en _reviewer_
-7. Relire la PR d’un·e camarade dans _Files changed_ : au moins **un commentaire** et **une suggestion**, 
-   puis envoyer la _review_ avec **Request changes**
-8. Sur sa propre PR : accepter la suggestion reçue, faire les autres corrections et les publier
-9. Le ou la _reviewer_ approuve la PR
-10. Merger sa PR, supprimer la branche, puis mettre à jour son `main` local
+1. Relire la PR d’un·e camarade dans _Files changed_
+2. Ajouter **un commentaire** et **une suggestion**, puis envoyer la _review_ avec **Request changes**
+3. Sur sa propre PR : accepter la suggestion reçue, faire les autres corrections et les publier
+4. Le ou la _reviewer_ approuve la PR
+5. Merger sa PR, supprimer la branche, puis mettre à jour son `main` local
 
 > _Ouvrez l’onglet Issues : que s’est-il passé ? Pourquoi ?_
 
-✅ **RÉUSSI SI** : toutes les _issues_ du groupe sont fermées, et `git log --oneline --graph` 
-affiche un commit `Merge pull request #N` par membre
+✅ **RÉUSSI SI** : toutes les _issues_ du groupe sont fermées
 
 [Correction](./exercices/exercice12.sh)
 
@@ -380,7 +386,8 @@ GitHub refuse : la seule porte d’entrée de `main` est désormais une PR appro
 
 ### Le problème
 
-Vous avez repéré une coquille dans la note de lecture d’un **autre groupe**. Vous clonez leur _repository_, corrigez, commitez… et :
+Vous avez repéré une coquille dans la note de lecture d’un **autre groupe**. 
+Vous clonez leur _repository_, corrigez, commitez… et :
 
 ```bash
 $ git push
@@ -445,8 +452,6 @@ base repository: autre-groupe/note-de-lecture-groupe   base: main
 
 ### Les _issues_ dans un projet _open-source_
 
-<img src="./images/issues-open-source.png" alt="Issues sur un projet open-source">
-
 Sur un projet _open-source_, les _issues_ indiquent **où et comment contribuer** :
 - le fichier **`CONTRIBUTING.md`** décrit les règles du projet : à lire avant toute contribution
 - le _label_ **`good first issue`** signale les tâches adaptées aux nouveaux contributeurs
@@ -454,7 +459,7 @@ Sur un projet _open-source_, les _issues_ indiquent **où et comment contribuer*
 
 <hr>
 
-### Exercice 13 : Corriger la note d’un autre groupe (groupe × groupe)
+### Exercice 14 : Corriger la note d’un autre groupe (groupe × groupe)
 
 1. Sur GitHub, lire la note de lecture d’un autre groupe et y repérer une amélioration
    (coquille, lien manquant, référence incomplète)
@@ -479,9 +484,9 @@ Sur un projet _open-source_, les _issues_ indiquent **où et comment contribuer*
 Tout ce que vous avez fait aujourd’hui porte un nom : le **GitHub Flow**.
 
 ```
-main   ●───────────●────────────────●──────────▶   toujours propre
-        \         /  \              /
-         ●──●──●─●    ●──●──●──●───●
+main   ●───────────●────────────────●──────▶   toujours propre
+        \         /  \             /
+         ●──●──●─●    ●──●──●──●──●
         biblio-commune  fix-lien-hal
         ↑ issue #3      ↑ issue #4
 ```
