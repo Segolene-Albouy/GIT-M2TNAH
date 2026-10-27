@@ -2,6 +2,30 @@
   "title": "Github",
   "questions": [
     {
+      "type": "text",
+      "text": "Dupliquer un repository GitHub en local : git …",
+      "answer": [
+        "clone",
+        "git clone"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Récupérer du code remote en local : git …",
+      "answer": [
+        "pull",
+        "git pull"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Publier du code local sur GitHub : git …",
+      "answer": [
+        "push",
+        "git push"
+      ]
+    },
+    {
       "type": "single",
       "text": "Lequel fonctionne sans connexion internet ?",
       "choices": ["git", "GitHub", "les deux", "aucun"],
@@ -44,15 +68,21 @@
       "answer": "de la clé SSH absente de GitHub"
     },
     {
-      "type": "single",
+      "type": "multiple",
       "text": "Comment empêcher un fichier d'arriver sur GitHub ?",
-      "choices": ["ne jamais l'ajouter", "le lister dans .gitignore", "le supprimer avant chaque push"],
-      "answer": "le lister dans .gitignore"
+      "choices": ["ne jamais l'ajouter", "le lister dans .gitignore", "le supprimer avant chaque commit"],
+      "answer": ["ne jamais l'ajouter", "le lister dans .gitignore", "le supprimer avant chaque commit"]
+    },
+    {
+      "type": "multiple",
+      "text": "Comment synchroniser sa branche sur la version de la branche main sur GitHub ?",
+      "choices": ["git pull", "git fetch + git merge origin/main", "git switch main + git pull + git switch mybranch + git merge main", "git clone"],
+      "answer": ["git fetch + git merge origin/main", "git switch main + git pull + git switch mybranch + git merge main"]
     },
     {
       "type": "single",
       "text": "Bon ordre avant de partager son travail :",
-      "choices": ["push → commit → pull", "commit → pull → push", "pull → push → commit"],
+      "choices": ["commit → push → pull", "push → commit → pull", "commit → pull → push", "pull → push → commit"],
       "answer": "commit → pull → push"
     }
   ]
