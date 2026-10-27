@@ -306,7 +306,7 @@ ls -al
 # → un dossier .git/ caché a été créé
 ```
 
-> 🚨️ **Piège fréquent** : lancer `git init` dans son dossier personnel (`~`) transforme **tout** son compte en _repository_.
+> 🚨️ **Piège fréquent** : lancer `git init` dans un dossier existant transforme **tout** son compte en _repository_.
 > Pour annuler : supprimer le dossier `.git/` créé par erreur (`rm -rf ~/.git`).
 
 <hr>
@@ -523,7 +523,6 @@ Structure du _repository_ que vous allez construire :
 ```
 note-de-lecture/
 ├── README.md          # notice du mémoire
-├── chapitre-N.md      # votre résumé en 5 points (N = numéro du chapitre)
 ├── biblio.md          # références bibliographiques du mémoire
 └── brouillon.txt      # vos notes personnelles, qui ne seront jamais sauvegardées dans git
 ```
@@ -542,15 +541,17 @@ note-de-lecture/
      - Titre :
      - Année de soutenance :
      - Lien HAL :
-     ```
-   - `chapitre-N.md` : autant de fichiers que de chapitres dans votre partie (`chapitre-1.md`, `chapitre-2.md`…)
-     ```md
-     # Chapitre N : <titre du chapitre>
-     1.
+     
+     ## Plan
+     1. 
      2.
      3.
-     4.
-     5.
+     ```
+   - `biblio.md` : références bibliographiques du mémoire
+     ```md
+     1. AUTEUR, Prénom. Titre. Édition. Lieu de publication : Éditeur, année de publication
+     2.
+     3.
      ```
    - `brouillon.txt` : vos notes personnelles
 5. Lister les fichiers modifiés et inspecter les changements
